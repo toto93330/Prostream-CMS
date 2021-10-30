@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" id="website">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>LetsPlayMatsu.fr |
+			{% block title %}Welcome To My World
+			{% endblock %}
+		</title>
+		<meta
+		name="description" content="Créateur de contenu vidéo / French Streamer and Videomaker">
+		<!-- CSS -->
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet"/>
+		<link href="/asset/style.css" rel="stylesheet"> {% block style %}{% endblock %}
+		<link rel="shortcut icon" href="./asset/img/logo.png" type="image/x-icon">
+	</head>
+
+	<body>
+		<!-- Menu Mobile -->
+		<div id="menu-mobile">
+			<a onclick="menumobile()">
+				<i class="fas fa-bars"></i>
+			</a>
+		</div>
+
+		<div id="menu-site-mobile">
+			<div class="close">
+				<a onclick="menumobile()">
+					<i class="fas fa-times"></i>
+				</a>
+			</div>
+			<div class="logo">
+				<img class="animate__animated animate__slideInDown" src="/asset/img/logo.png" alt="">
+			</div>
+			<div class="social animate__animated animate__slideInLeft">
+				<a href="">
+					<i class="fab fa-facebook-f"></i>
+				</a>
+				<a href="">
+					<i class="fab fa-twitter"></i>
+				</a>
+				<a href="">
+					<i class="fab fa-youtube"></i>
+				</a>
+				<a href="">
+					<i class="fab fa-twitch"></i>
+				</a>
+				<a href="">
+					<i class="fab fa-discord"></i>
+				</a>
+				<a href="">
+					<i class="fab fa-instagram"></i>
+				</a>
+				<a href="">
+					<i class="fab fa-github-alt"></i>
+				</a>
+			</div>
+			<ul class="animate__animated animate__slideInUp">
+				<a href="/">
+					<li>
+						<i class="fas fa-play"></i>Live
+					</li>
+				</a>
+				<a href="/projets-bio">
+					<li>
+						<i class="fas fa-briefcase"></i>Projets/bio
+					</li>
+				</a>
+				<a href="/mon-extension">
+					<li>
+						<i class="fas fa-download"></i>Extension
+					</li>
+				</a>
+				<a href="/les-commandes">
+					<li>
+						<i class="fas fa-robot"></i>Les Commandes
+					</li>
+				</a>
+				<a href="/don-paypal">
+					<li>
+						<i class="fab fa-paypal"></i>Donation
+					</li>
+				</a>
+				<a href="/calendrier-de-mes-streams">
+					<li>
+						<i class="fas fa-calendar"></i>calendrier</li>
+				</a>
+
+			</ul>
+
+		</div>
+		<!-- Menu Desktop -->
+		<div id="menu-desktop">
+			<div class="logo">
+				<img src="/asset/img/logo.png" alt="">
+			</div>
+			<div class="social">
+				<a href="">
+					<i class="fab fa-facebook-f"></i>
+				</a>
+				<a href="">
+					<i class="fab fa-twitter"></i>
+				</a>
+				<a href="">
+					<i class="fab fa-youtube"></i>
+				</a>
+				<a href="">
+					<i class="fab fa-twitch"></i>
+				</a>
+				<a href="">
+					<i class="fab fa-discord"></i>
+				</a>
+				<a href="">
+					<i class="fab fa-instagram"></i>
+				</a>
+				<a href="">
+					<i class="fab fa-github-alt"></i>
+				</a>
+			</div>
+			<menu class="menu-nav-desktop">
+				<ul>
+					<a href="/">
+						<li>
+							<i class="fas fa-play"></i>Live
+						</li>
+					</a>
+					<a href="/projets-bio">
+						<li>
+							<i class="fas fa-briefcase"></i>Projets/bio
+						</li>
+					</a>
+					<a href="/mon-extension">
+						<li>
+							<i class="fas fa-download"></i>Extension
+						</li>
+					</a>
+					<a href="/les-commandes">
+						<li>
+							<i class="fas fa-robot"></i>Les Commandes
+						</li>
+					</a>
+					<a href="/don-paypal">
+						<li>
+							<i class="fab fa-paypal"></i>Donation
+						</li>
+					</a>
+					<a href="/calendrier-de-mes-streams">
+						<li>
+							<i class="fas fa-calendar"></i>calendrier</li>
+					</a>
+
+				</ul>
+			</menu>
+			<footer class="copyright">
+
+				<p>Copyright
+					<a href="http://anthonyalves.fr" target="_blank">LetsPlayMatsu</a>
+					©2018</p>
+
+				<menu class="menu-footer">
+					<ul>
+						<li><a href="mailto:contact@anthonyalves.fr">contact professionel</a></li>
+						<li><a href="mailto:contact@anthonyalves.fr">signaler un bug</a></li>
+						<li><a onclick="creditbox()" style="cursor: pointer;">credits</a></li>
+					</ul>
+				</menu>
+			</footer>
+		</div>
+		<div id="site-content">
+			<header>
+				<!-- HEADER -->
+			</header>
+			{% block content %}{% endblock %}
+			<!-- Commande Bot Button -->
+			<div class="commandes-bot">
+				<a href="/les-commandes">
+					<i class="fas fa-robot"></i>
+					<p>Commandes Bot</p>
+				</a>
+			</div>
+
+			<!-- Credit Box Footer -->
+			<div id="box-credit" class="animate__animated animate__tada">
+				<a class="close" onclick="creditbox()">
+					<i class="fas fa-times"></i>
+				</a>
+				<p>Site réalisé par
+					<a href="http://anthonyalves.fr" target="_blank">Anthony Alves</a>
+				</p>
+			</div>
+
+			<div class="footer-mobile">Copyright
+				<a href="http://anthonyalves.fr" target="_blank">Anthony Alves</a>
+				©2018
+			</div>
+		</div>
+
+	</body>
+	<!-- JavaScript -->
+
+	<!-- box credit -->
+	<script src="/asset/js/box.js"></script>
+
+	{% block javascript %}{% endblock %}
+
+</html></html>

@@ -1,0 +1,126 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Le Développeur Un Peu Geek
+{% endblock %}
+{% block content %}
+
+
+	<header>
+		<!-- HEADER -->
+	</header>
+	<section id="block-stream">
+
+		<div
+			class="video">
+			<!-- Cinema mod -->
+			<div id="cinemamod" class="animate__animated animate__fadeIn">
+				<div class="close animate__animated animate__lightSpeedInRight">
+					<a onclick="cinemamod()">
+						<svg class="svg-inline--fa fa-arrows-alt fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="arrows-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" data-fa-i2svg="">
+							<path fill="currentColor" d="M352.201 425.775l-79.196 79.196c-9.373 9.373-24.568 9.373-33.941 0l-79.196-79.196c-15.119-15.119-4.411-40.971 16.971-40.97h51.162L228 284H127.196v51.162c0 21.382-25.851 32.09-40.971 16.971L7.029 272.937c-9.373-9.373-9.373-24.569 0-33.941L86.225 159.8c15.119-15.119 40.971-4.411 40.971 16.971V228H228V127.196h-51.23c-21.382 0-32.09-25.851-16.971-40.971l79.196-79.196c9.373-9.373 24.568-9.373 33.941 0l79.196 79.196c15.119 15.119 4.411 40.971-16.971 40.971h-51.162V228h100.804v-51.162c0-21.382 25.851-32.09 40.97-16.971l79.196 79.196c9.373 9.373 9.373 24.569 0 33.941L425.773 352.2c-15.119 15.119-40.971 4.411-40.97-16.971V284H284v100.804h51.23c21.382 0 32.09 25.851 16.971 40.971z"></path>
+						</svg>
+					</a>
+				</div>
+				<div id="twitch-embed-cinema" class="animate__animated animate__lightSpeedInRight"></div>
+			</div>
+			<!-- Twitch Player -->
+			<div class="video-title">
+				<i class="fas fa-play"></i>
+				<h2>Diablo 2 on monte notre necro level 99</h2>
+				<div class="video-full-size">
+					<a onclick="cinemamod()">
+						<svg class="svg-inline--fa fa-arrows-alt fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="arrows-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" data-fa-i2svg="">
+							<path fill="currentColor" d="M352.201 425.775l-79.196 79.196c-9.373 9.373-24.568 9.373-33.941 0l-79.196-79.196c-15.119-15.119-4.411-40.971 16.971-40.97h51.162L228 284H127.196v51.162c0 21.382-25.851 32.09-40.971 16.971L7.029 272.937c-9.373-9.373-9.373-24.569 0-33.941L86.225 159.8c15.119-15.119 40.971-4.411 40.971 16.971V228H228V127.196h-51.23c-21.382 0-32.09-25.851-16.971-40.971l79.196-79.196c9.373-9.373 24.568-9.373 33.941 0l79.196 79.196c15.119 15.119 4.411 40.971-16.971 40.971h-51.162V228h100.804v-51.162c0-21.382 25.851-32.09 40.97-16.971l79.196 79.196c9.373 9.373 9.373 24.569 0 33.941L425.773 352.2c-15.119 15.119-40.971 4.411-40.97-16.971V284H284v100.804h51.23c21.382 0 32.09 25.851 16.971 40.971z"></path>
+						</svg>
+					</a>
+				</div>
+			</div>
+			<!-- <iframe src="https://player.twitch.tv/?channel=dallas&parent=streamernews.example.com&muted=true" frameborder="0" allowfullscreen="true" scrolling="no" width="100%"></iframe> -->
+
+			<div id="twitch-embed"></div>
+		</div>
+		<!-- Twitch Tchat -->
+		<div class="tchat">
+			<div class="tchat-viewers">
+				<i class="fas fa-users"></i>
+				<div class="viewers">
+					999999</div>
+			</div>
+			<div id="chat-embed">
+				<iframe src="https://www.twitch.tv/embed/letsplaymatsu/chat?parent=letsplaymatsu.fr&darkpopout" width="250px" height="491px"></iframe>
+			</div>
+
+		</div>
+	</section>
+	<!-- Block Info -->
+	<section id="block-info">
+
+		<div class="info-box">
+			<a href="#" target="_blank">
+				<div class="icon">
+					<i class="fab fa-twitch"></i>
+				</div>
+				<div class="text">
+					<h3>Subscribe</h3>
+					<p>Abonne-toi et obtiens plein d’avantages !</p>
+				</div>
+			</a>
+		</div>
+
+		<div class="info-box">
+			<a href="https://www.twitch.tv/bits" target="_blank">
+				<div class="icon">
+					<i class="fas fa-gift"></i>
+				</div>
+				<div class="text">
+					<h3>Bits et Badges</h3>
+					<p>Passe ton message en live à partir de 500 bits et gagne des badges sur le chat !</p>
+				</div>
+			</a>
+		</div>
+
+		<div class="info-box">
+			<a href="#" target="_blank">
+				<div class="icon">
+					<i class="fas fa-film"></i>
+				</div>
+				<div class="text">
+					<h3>Replay live</h3>
+					<p>Accède aux rediffusions instantanées des lives !</p>
+				</div>
+			</a>
+		</div>
+
+		<div class="info-box">
+			<a href="#" target="_blank">
+				<div class="icon">
+					<i class="fas fa-shopping-cart"></i>
+				</div>
+				<div class="text">
+					<h3>Boutique</h3>
+					<p>Achète les derniers t-shirts et goodies !</p>
+				</div>
+			</a>
+		</div>
+
+	</section>
+
+
+{% endblock %}
+
+{% block javascript %}
+	<!-- Load the Twitch embed script -->
+	<script src="/asset/js/twitch.js"></script>
+
+	<!-- Create a Twitch.Player object. This will render within the placeholder div -->
+	<script type="text/javascript">
+		new Twitch.Player("twitch-embed", {channel: "letsplaymatsu"});
+	</script>
+
+	<script type="text/javascript">
+		new Twitch.Player("twitch-embed-cinema", {
+channel: "letsplaymatsu",
+width: 1000
+});
+	</script>
+{% endblock %}
