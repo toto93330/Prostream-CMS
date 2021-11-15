@@ -1,0 +1,79 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Gestion des reseaux sociaux
+{% endblock %}
+
+
+{% block content %}
+
+	<div class="card">
+		<div class="card-header">
+			<h5>Reseaux sociaux</h5>
+		</div>
+		<div class="card-block">
+			<div class="row">
+
+				<div class="col-sm-12">
+
+					<div class="card">
+						<div class="card-header">
+							<h5>Gerer facilement vos liens sociaux</h5>
+							<span>cette page liste les liens disponible dans le menu du site vous pouvez en rajouter ou en supprimer.</span>
+							<div class="card-header-right">
+								<ul class="list-unstyled card-option">
+									<li>
+										<i class="fa fa fa-wrench open-card-option"></i>
+									</li>
+									<li>
+										<i class="fa fa-window-maximize full-card"></i>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="card-block table-border-style">
+							<div class="table-responsive">
+								<table class="table table-inverse">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>name</th>
+											<th>icon</th>
+											<th>link</th>
+											<th>option</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row">1</th>
+											<td>facebook</td>
+											<td>
+												<i class="fab fa-facebook-f"></i>
+											</td>
+											<td>#</td>
+											<td>
+												<button class="btn btn-success">
+													<i class="fas fa-edit"></i>
+												</button>
+												<button class="btn btn-danger">
+													<i class="fas fa-trash-alt"></i>
+												</button>
+											</td>
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+
+
+					<button class="btn btn-success waves-effect waves-light">Ajouter un lien</button>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}

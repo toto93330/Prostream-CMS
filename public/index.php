@@ -1,6 +1,11 @@
 <?php
 
 ###
+# VERIF WEBSITE IS INSTALLED
+###
+
+
+###
 # AUTOLOAD
 ###
 require_once '../vendor/autoload.php';

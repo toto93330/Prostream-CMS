@@ -1,17 +1,18 @@
 {
     "require": {
-        "twig/twig": "3.0",
-        "altorouter/altorouter": "^2.0"
+        "twig/twig": "*",
+        "altorouter/altorouter": "^2.0",
+        "twig/intl-extra": "^3.3"
+    },
+    "autoload":{
+        "psr-4" : {
+            "Src\\": "src/"
+        }
     },
     "authors": [
         {
             "name": "Anthony Alves",
             "email": "contact@anthonyalves.fr"
         }
-    ],
-    "autoload":{
-        "psr-4" : {
-            "Src\\": "src/"
-        }
-    }
+    ]
 }

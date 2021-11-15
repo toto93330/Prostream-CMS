@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\Functions;
+namespace Src\Function;
 
 /**
  * This Class it's for connexion with PDO.

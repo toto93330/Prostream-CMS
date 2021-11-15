@@ -7,16 +7,16 @@
 {% block content %}
 	<section id="block-container">
 		<div id="block-extention">
-			<h1>Ne ratez plus aucun live</h1>
+			<h1>{{extension.title}}</h1>
 			<div class="line"></div>
-			<p class="content">Si vous souhaitez ne rater aucun live et être au courant dès que je commence à streamer, téléchargez
-																												                    l’extension de votre choix ! L’icône de l’extension passe au vert quand je suis est en live. Cliquez
-																												                    dessus lorsqu’elle est verte pour accéder au stream !</p>
+			<p class="content">
+				{{extension.content|raw}}
+			</p>
 			<!-- Button Download Extension -->
 			<div id="download-extention">
 
 				<div class="btn-with-info">
-					<a href="#" target="_blank">
+					<a href="{{extension.linkextensionfirefox}}" target="_blank">
 						<div class="icon">
 							<i class="fab fa-firefox-browser"></i>
 						</div>
@@ -28,7 +28,7 @@
 				</div>
 
 				<div class="btn-with-info">
-					<a href="#" target="_blank">
+					<a href="{{extension.linkextensionchrome}}" target="_blank">
 						<div class="icon">
 							<i class="fab fa-chrome"></i>
 						</div>

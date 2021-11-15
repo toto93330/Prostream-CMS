@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}La Page Que Tu Demande N'existe Pas/Ou Plus
+{% block title %}Le Calendrier de la semaine des stream de matsu
 {% endblock %}
 
 
@@ -14,71 +14,62 @@
 
 			{# si la taille de la box fait 550px tu divise 550px par 15px car, il y a 24 heures dans une journée et vue que tu commence à 9h00 tes stream tu fais 24-9 = 15px dans une journée ce qui te donne 36.6px pour une heure  #}
 
-			<div id="calendar" style="display:flex; flex-wrap:wrap; justify-content:space-around; width: 100%; margin-top: 23px; overflow:hidden;">
+			<div id="calendar" style="display:flex; flex-wrap:wrap; justify-content:space-around; width: 100%; margin-top: 23px;">
 
-				<div class="block-day">
-					<div class="day">Lundi</div>
-					<div class="event">
+				{% for day in days %}
 
-						<div class="block-event" style="background-image: url('/asset/img/logo.png'); height: 109.8px;">
-							<p>9h00 à 12h00</p>
-							<p>PAPOTAGE</p>
+					<div class="block-day">
+						<div class="day">{{day.name}}</div>
+						<div class="event">
+
+							{% for event in events %}
+
+								{% if event.dayID.id == day.id %}
+
+
+									{% if event.starteventat|date('H') == 0 and event.isfullday != 1 %}
+										<div class="block-event" style="background-image: url('{{event.image}}'); height: {{ (((event.endeventat|date('H')) + (event.endeventat|date('i') / 60)) - ((event.starteventat|date('H')) + (event.starteventat|date('i') / 60))) * 21}}px;">
+											<p>
+												{{event.starteventat|date('H')}}H{{event.starteventat|date('i')}}
+												à
+												{{event.endeventat|date('H')}}H{{event.endeventat|date('i')}}</p>
+											<p>{{event.name}}</p>
+										</div>
+
+										{% set oldendeventat = (((event.endeventat|date('H')) + (event.endeventat|date('i') / 60))) %}
+
+									{% endif %}
+
+									{% if event.isfullday != 0 %}
+
+										<div class="block-event" style="background-image: url('{{event.image}}'); height: 100%;">
+											<p>Journée</p>
+											<p>{{event.name}}</p>
+										</div>
+
+									{% endif %}
+
+									{% if event.starteventat|date('H') != 0 and event.isfullday != 1 %}
+
+
+										<div class="block-event" style="background-image: url('{{event.image}}'); height: {{ (((event.endeventat|date('H')) + (event.endeventat|date('i') / 60)) - ((event.starteventat|date('H')) + (event.starteventat|date('i') / 60))) * 21  }}px;  margin-top: {{ ((( oldendeventat ) - (((event.starteventat|date('i')) / 60) + (event.starteventat|date('H')))) * 22.9)|abs }}px;">
+											<p>
+												{{event.starteventat|date('H')}}H{{event.starteventat|date('i')}}
+												à
+												{{event.endeventat|date('H')}}H{{event.endeventat|date('i')}}</p>
+											<p>{{event.name}}</p>
+										</div>
+
+										{% set oldendeventat = (((event.endeventat|date('H')) + (event.endeventat|date('i') / 60))) %}
+									{% endif %}
+
+								{% endif %}
+							{% endfor %}
+
 						</div>
-
-						<div class="block-event" style="background-image: url('/asset/img/logo.png'); height: 91.5px; margin-top:219.6px">
-							<p>18h00 à 20h30</p>
-							<p>League of poney</p>
-						</div>
-
-						<div class="block-event" style="background-image: url('/asset/img/logo.png'); height: 73.2px; margin-top:54.9px">
-							<p>22h00 à 00h00</p>
-							<p>Soirée fun</p>
-						</div>
-
 					</div>
 
-
-				</div>
-				<div class="block-day">
-					<div class="day">Mardi</div>
-					<div class="event">
-						<div class="block-event" style="background-image: url('/asset/img/logo.png'); height: 549px;">
-							<p>9h00 à 00h00</p>
-							<p>GTA 7</p>
-						</div>
-					</div>
-
-				</div>
-				<div class="block-day">
-					<div class="day">Mercredi</div>
-					<div class="event"></div>
-
-				</div>
-				<div class="block-day">
-					<div class="day">Jeudi</div>
-					<div class="event">
-						<div class="block-event" style="background-image: url('/asset/img/logo.png'); height: 329.4px">
-							<p>9h00 à 18h00</p>
-							<p>League of Legende</p>
-						</div>
-					</div>
-
-				</div>
-				<div class="block-day">
-					<div class="day">Vendredi</div>
-					<div class="event"></div>
-
-				</div>
-				<div class="block-day">
-					<div class="day">Samedi</div>
-					<div class="event"></div>
-
-				</div>
-				<div class="block-day">
-					<div class="day">Dimanche</div>
-					<div class="event"></div>
-
-				</div>
+				{% endfor %}
 
 
 			</div>

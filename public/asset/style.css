@@ -44,6 +44,7 @@ iframe {
     font-style: normal;
 }
 
+
 /* MENU */
 
 
@@ -319,7 +320,7 @@ iframe {
     overflow: hidden;
     width: 650px;
     height: 30px;
-    margin-top: 15px;
+    margin-top: 12px;
 }
 
 .video-title h2::first-letter {
@@ -443,7 +444,7 @@ iframe {
 .viewers {
     display: inline-block;
     padding-left: 8px;
-    font-size: 1.1em;
+    font-size: 1.3em;
 }
 
 
@@ -670,7 +671,7 @@ iframe {
 .btn-primary:hover {
     transition: .4s;
     transform: rotate(12);
-    color: rgb(30, 142, 233);
+    color: whitesmoke;
     border: 2px solid rgb(255, 255, 255);
 }
 
@@ -696,9 +697,12 @@ iframe {
 
 .block-day {
     background-color: rgba(128, 128, 128, 0.164);
-    min-width: 150px;
+    max-width: 150px;
     text-align: center;
     margin-top: 12px;
+    max-height: 550px;
+    overflow: hidden;
+    min-width: 150px;
 }
 
 .day {
@@ -718,6 +722,8 @@ iframe {
     top: 0px;
     overflow: hidden;
     padding-top: auto;
+    border-top: solid rgb(0, 0, 0) 1px;
+    border-bottom: solid rgb(0, 0, 0) 1px;
 }
 
 .block-event p {
@@ -811,6 +817,180 @@ iframe {
     color: whitesmoke;
 }
 
+/* ADMIN HOME */
+
+
+#admin-info {
+    background-color: rgba(245, 245, 245, 0.246);
+    padding: 12px;
+    margin-top: 22px;
+}
+
+#admin-info .warning {
+    min-height: 25px;
+    line-height: 25px;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 8px 0px;
+    background-color: rgba(0, 132, 255, 0.438);
+}
+
+#admin-info .error {
+    min-height: 25px;
+    line-height: 25px;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 8px 0px;
+    background-color: rgba(255, 0, 0, 0.281);
+}
+
+#admin-info .success {
+    min-height: 25px;
+    line-height: 25px;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 8px 0px;
+    background-color: rgba(0, 255, 64, 0.281);
+}
+
+/* ADMIN LIVE */
+
+#install-twitch-modul {
+    display: flex;
+    justify-content: space-around;
+}
+
+#install-twitch-modul .etape {
+    width: 500px;
+    margin: 22px auto;
+}
+
+/* FORM */
+.form-control {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    max-width: 650px;
+    margin: 25px auto;
+    min-width: 100%;
+}
+
+.form-control * {
+    display: block;
+}
+
+.form-control input {
+    font-size: 0.9em;
+}
+
+.form-control input[type=text] {
+    padding: 8px;
+    margin: 5px 0px;
+    border-radius: 2px;
+    border: none;
+}
+
+.form-control input[type=password] {
+    padding: 8px;
+    margin: 5px 0px;
+    border-radius: 2px;
+    border: none;
+}
+
+.form-control input[type=time] {
+    padding: 8px;
+    margin: 5px 0px;
+    border-radius: 2px;
+    border: none;
+}
+
+.form-control input[type=email] {
+    padding: 8px;
+    margin: 5px 0px;
+    border-radius: 2px;
+    border: none;
+}
+
+.form-control input[type=submit] {
+    background-color: transparent;
+}
+
+.form-control input[type=file] {
+    padding: 8px;
+    margin: 5px 0px;
+    border-radius: 2px;
+    border: none;
+    background-color: rgb(30, 142, 233);
+    display: none;
+}
+
+.form-control select {
+    padding: 8px;
+    background-color: transparent;
+    color: rgb(30, 142, 233);
+    text-transform: uppercase;
+    border: rgb(30, 142, 233) 2px solid;
+    margin: 5px 0px;
+    border-radius: 2px;
+}
+
+
+.form-control select option {
+    padding: 8px;
+    font-family: arial;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: white;
+}
+
+.form-control .h4 {
+    font-size: 1.3em;
+    margin-top: 8px;
+}
+
+.form-control label::first-letter {
+    text-transform: uppercase;
+}
+
+.form-control .label-file {
+    text-transform: uppercase;
+    max-width: 150px;
+    padding: 6px;
+    margin: 5px auto;
+    font: 0.7em;
+}
+
+/* ADMIN COMMANDS */
+
+#admin-command {
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+/* ADMIN CALENDAR */
+
+#admin-calendar {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 350;
+}
+
+/* ADMIN USER */
+
+#admin-user {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 350;
+}
+
 /*  RESPONSIVE */
 
 @media (max-width: 1445px) {
@@ -849,7 +1029,7 @@ iframe {
         overflow: hidden;
         max-width: 300px;
         height: 30px;
-        margin-top: 15px;
+        margin-top: 12px;
     }
 
     #block-stream .video {
@@ -943,6 +1123,7 @@ iframe {
         text-align: center;
         margin: 23px 0px;
         border-bottom: solid 3px rgb(30, 142, 233);
+        overflow: hidden
     }
 
     .block-event {
@@ -970,8 +1151,6 @@ iframe {
         color: whitesmoke;
     }
 }
-
-
 
 /* ANIMATION */
 

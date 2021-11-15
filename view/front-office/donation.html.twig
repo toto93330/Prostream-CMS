@@ -7,19 +7,18 @@
 {% block content %}
 	<section id="block-container">
 		<div id="block-donnation">
-			<h1>Donation</h1>
+			<h1>{{donation.title}}</h1>
 			<div class="line"></div>
-			<p>Votre envie de me faire un don doit venir de vous et de vous seul, ce n'est pas obligatoire ! Petit ou gros montant, c'est l'intention qui compte ça me permettra de me payer des capotes et du café. 🙃
-			</p>
+			{{donation.content}}
+
 			<div id="block-donation-button">
-				<a href="https://www.paypal.com/biz/fund?id=JWGZHLSXJMTFY" class="btn btn-primary" target="_blank">
+				<a href="{{donation.linkdonationpaypal}}" class="btn btn-primary" target="_blank">
 					<i class="fab fa-paypal"></i>
 					Donation via Paypal</a>
-				<a href="https://streamlabs.com/letsplaymatsu/tip" class="btn btn-primary" target="_blank">
+				<a href="{{donation.linkdonationstreamlab}}" class="btn btn-primary" target="_blank">
 					<i class="fab fa-twitch"></i>
 					Donation via Streamlab</a>
 			</div>
-			<p class="text-center">J'ai rajouté streamlab si vous voulez passer un petit message en live c'est quand même plus cool !😇</p>
 		</div>
 
 	</section>

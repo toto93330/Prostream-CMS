@@ -9,44 +9,66 @@
 		<div id="block-commands">
 			<h1>Commandes de la chaîne</h1>
 			<div class="line"></div>
-			<p>Voici la liste des commandes de la chaîne twitch, attention certaines commandes coûtent des Mcoins
-								                    (monnaie virtuel du stream) vous pourrez retrouver les commandes les plus funs
-								                    et original de ma chaine twitch ici ! Profiter bien. 😁</p>
+			<p>Voici la liste des commandes de la chaîne twitch, attention certaines commandes coûtent des Mcoins(monnaie virtuel du stream) vous pourrez retrouver les commandes les plus funs
+																																																																																																																																																																																																																																																			et original de ma chaine twitch ici ! Profiter bien. 😁</p>
 			<!-- Table commandes -->
 
-			<table id="table-commande">
-				<tr>
-					<th colspan="3">CATEGORIE COMMANDES</th>
-				</tr>
-				<tr class="table-commande-header">
-					<td>
-						Commande
-					</td>
-					<td>
-						Resultat
-					</td>
-					<td>
-						Coût
-					</td>
-				</tr>
+			{% for categorie in category %}
 
-				<tr class="table-commande-content">
-					<td>!test</td>
-					<td class="text-center">ceci est un test de commande
-												                            cool qui tue et qui
-												                            est super genial oulalal un truc de ouff.</td>
-					<td class="text-center">0</td>
-				</tr>
+				<table id="table-commande">
+					<tr>
+						<th colspan="3">Commands
+							{{categorie.name}}</th>
+					</tr>
+					<tr class="table-commande-header">
+						<td>
+							Commande
+						</td>
+						<td>
+							Resultat
+						</td>
+						<td>
+							Coût
+						</td>
+					</tr>
 
-				<tr class="table-commande-content">
-					<td>!test</td>
-					<td class="text-center">ceci est un test de commande
-												                            cool qui tue et qui
-												                            est super genial oulalal un truc de ouff.</td>
-					<td class="text-center">0</td>
-				</tr>
+					{% for command in commands %}
 
-			</table>
+						{% if categorie.id == command.categoryid.id %}
+
+							{% if command.actived == 1 %}
+
+
+								<tr class="table-commande-content">
+									<td>{{command.command}}</td>
+									<td class="text-center">{{command.content}}</td>
+									<td class="text-center">{{command.cost}}</td>
+								</tr>
+
+							{% else %}
+
+
+								<tr class="table-commande-content" style="color: #ff000073">
+									<td>{{command.command}}</td>
+									<td class="text-center">
+										!!! Commande Désactivé !!!<br>
+										{{command.content}}
+									</td>
+									<td class="text-center">?</td>
+								</tr>
+
+							{% endif %}
+
+
+						{% endif %}
+
+					{% endfor %}
+
+				</table>
+
+			{% endfor %}
+
+
 		</div>
 	</section>
 {% endblock %}

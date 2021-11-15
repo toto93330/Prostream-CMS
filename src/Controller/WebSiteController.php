@@ -2,6 +2,16 @@
 
 namespace Src\Controller;
 
+use Src\Model\Page;
+use Src\Model\General;
+use Src\Model\Calendar;
+use Src\Model\Commands;
+use Src\Model\Donation;
+use Src\Function\Twitch;
+use Src\Model\CalendarDay;
+use Src\Model\Extension;
+use Src\Model\CommandsCategory;
+
 /**
  * This Class it's for front controller.
  * @author Anthony Alves <www.anthonyalves.fr>
@@ -23,7 +33,17 @@ class WebSiteController
     #######################
     function home()
     {
-        $this->render('front-office/home', []);
+
+        // Init Twitch Info
+        $stream = (new Twitch())->getStreamInfo();
+
+        // Get Twitch data 
+        $twitch = (new \Src\Model\Twitch())->findAll();
+
+        $this->render('front-office/home', [
+            'stream' => $stream,
+            'twitch' => $twitch[0],
+        ]);
     }
 
     #######################
@@ -31,7 +51,13 @@ class WebSiteController
     #######################
     function projetsbio()
     {
-        $this->render('front-office/bio', []);
+
+        // INIT PAGE OBJECT
+        $page = (new Page())->findAll();
+
+        $this->render('front-office/bio', [
+            'page' => $page[0]
+        ]);
     }
 
     #######################
@@ -39,7 +65,13 @@ class WebSiteController
     #######################
     function extention()
     {
-        $this->render('front-office/extention', []);
+
+        // INIT EXTENSION PAGE OBJECT
+        $extension = (new Extension())->findAll();
+
+        $this->render('front-office/extention', [
+            'extension' => $extension[0]
+        ]);
     }
 
     #######################
@@ -47,7 +79,15 @@ class WebSiteController
     #######################
     function commands()
     {
-        $this->render('front-office/commands', []);
+
+        $commands = (new Commands())->findAll();
+        $commandscategory = (new CommandsCategory)->findAll();
+
+
+        $this->render('front-office/commands', [
+            'commands' => $commands,
+            'category' => $commandscategory,
+        ]);
     }
 
     #######################
@@ -55,7 +95,14 @@ class WebSiteController
     #######################
     function donation()
     {
-        $this->render('front-office/donation', []);
+
+        // INIT DONATION PAGE OBJECT
+        $donation = (new Donation())->findAll();
+
+
+        $this->render('front-office/donation', [
+            'donation' => $donation[0],
+        ]);
     }
 
     #######################
@@ -63,7 +110,13 @@ class WebSiteController
     #######################
     function calendar()
     {
-        $this->render('front-office/calendar', []);
+        $events = (new Calendar())->findAllOrderEventStart();
+        $days = (new CalendarDay())->findAll();
+
+        $this->render('front-office/calendar', [
+            'events' => $events,
+            'days' => $days,
+        ]);
     }
 
 
@@ -75,11 +128,15 @@ class WebSiteController
         $loader = new \Twig\Loader\FilesystemLoader('../view/front-office');
         $twig = new \Twig\Environment($loader, [
             'cache' => false,
+            'debug' => true,
         ]);
+
+        $twig->addExtension(new \Twig\Extension\DebugExtension());
 
         $twig->addGlobal('session', $_SESSION);
         $twig->addGlobal('post', $_POST);
         $twig->addGlobal('get', $_GET);
+        $twig->addGlobal('server', $_SERVER);
 
         $folder = explode('/', $viewName);
         echo $twig->render($folder[1] . '.html.twig', $args);

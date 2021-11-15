@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" id="website">
+<html lang="fr" id="website">
 
 	<head>
 		<meta charset="UTF-8">
@@ -15,7 +15,7 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet"/>
 		<link href="/asset/style.css" rel="stylesheet"> {% block style %}{% endblock %}
-		<link rel="shortcut icon" href="./asset/img/logo.png" type="image/x-icon">
+		<link rel="shortcut icon" href="/asset/img/logo.png" type="image/x-icon">
 	</head>
 
 	<body>
@@ -203,6 +203,19 @@
 
 	<!-- box credit -->
 	<script src="/asset/js/box.js"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-83376745-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+function gtag() {
+dataLayer.push(arguments);
+}
+gtag('js', new Date());
+
+gtag('config', 'UA-83376745-1');
+	</script>
+
 
 	{% block javascript %}{% endblock %}
 
