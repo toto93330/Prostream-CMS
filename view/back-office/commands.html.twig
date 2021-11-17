@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Gestion des reseaux sociaux
+{% block title %}Gestion Des commandes
 {% endblock %}
 
 
@@ -8,7 +8,7 @@
 
 	<div class="card">
 		<div class="card-header">
-			<h5>Reseaux sociaux</h5>
+			<h5>Commandes</h5>
 		</div>
 		<div class="card-block">
 			<div class="row">
@@ -17,8 +17,8 @@
 
 					<div class="card">
 						<div class="card-header">
-							<h5>Gerer facilement vos liens sociaux</h5>
-							<span>cette page liste les liens disponible dans le menu du site vous pouvez en rajouter ou en supprimer.</span>
+							<h5>Gerer les commandes de votre bot</h5>
+							<span>cette page liste les commandes disponible dans votre stream vous pouvez en rajouter ou en supprimer.</span>
 							<div class="card-header-right">
 								<ul class="list-unstyled card-option">
 									<li>
@@ -36,20 +36,24 @@
 									<thead>
 										<tr>
 											<th>#</th>
-											<th>name</th>
-											<th>icon</th>
-											<th>link</th>
+											<th>categorie</th>
+											<th>commande</th>
+											<th>content</th>
+											<th>coût</th>
+											<th>activé</th>
 											<th>option</th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr>
 											<th scope="row">1</th>
-											<td>facebook</td>
+											<td>fun</td>
 											<td>
-												<i class="fab fa-facebook-f"></i>
+												!test
 											</td>
-											<td>#</td>
+											<td>ceci est un test de commande cool qui tue et qui est super genial oulalal un truc de ouff.</td>
+											<td>0</td>
+											<td>1</td>
 											<td>
 												<button class="btn btn-success">
 													<i class="fas fa-edit"></i>
@@ -67,7 +71,9 @@
 					</div>
 
 
-					<button class="btn btn-success waves-effect waves-light">Ajouter un lien</button>
+					<a href="/admin/commandes/add">
+						<button class="btn btn-success waves-effect waves-light">Ajouter une commande</button>
+					</a>
 				</div>
 
 

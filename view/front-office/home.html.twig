@@ -26,7 +26,7 @@
 			<!-- Twitch Player -->
 			<div class="video-title">
 				<i class="fas fa-play"></i>
-				<h2>{{stream.title|length > 50 ? stream.title|slice(0, 50) ~ '...' : stream.title}}</h2>
+				<h2>{{channeltitle|length > 50 ? channeltitle|slice(0, 50) ~ '...' : channeltitle}}</h2>
 				<div class="video-full-size">
 					<a onclick="cinemamod()">
 						<svg class="svg-inline--fa fa-arrows-alt fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="arrows-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" data-fa-i2svg="">
@@ -43,10 +43,10 @@
 		<div class="tchat">
 			<div class="tchat-viewers">
 				<i class="fas fa-users"></i>
-				<div class="viewers">{{stream.viewer_count}}</div>
+				<div class="viewers">{{channelviewers}}</div>
 			</div>
 			<div id="chat-embed">
-				<iframe src="https://www.twitch.tv/embed/{{twitch.name}}/chat?parent={{server.SERVER_NAME}}&darkpopout" width="250px" height="491px"></iframe>
+				<iframe src="https://www.twitch.tv/embed/{{channelname}}/chat?parent={{server.SERVER_NAME}}&darkpopout" width="250px" height="491px"></iframe>
 			</div>
 
 		</div>
@@ -55,7 +55,7 @@
 	<section id="block-info">
 
 		<div class="info-box">
-			<a href="{{twitch.linksubscribe}}" target="_blank">
+			<a href="{{linksubscribe}}" target="_blank">
 				<div class="icon">
 					<i class="fab fa-twitch"></i>
 				</div>
@@ -67,7 +67,7 @@
 		</div>
 
 		<div class="info-box">
-			<a href="{{twitch.linkbits}}" target="_blank">
+			<a href="{{linkbits}}" target="_blank">
 				<div class="icon">
 					<i class="fas fa-gift"></i>
 				</div>
@@ -79,7 +79,7 @@
 		</div>
 
 		<div class="info-box">
-			<a href="{{twitch.linkreplay}}" target="_blank">
+			<a href="{{linkreplay}}" target="_blank">
 				<div class="icon">
 					<i class="fas fa-film"></i>
 				</div>
@@ -91,7 +91,7 @@
 		</div>
 
 		<div class="info-box">
-			<a href="{{twitch.linkshop}}" target="_blank">
+			<a href="{{linkboutique}}" target="_blank">
 				<div class="icon">
 					<i class="fas fa-shopping-cart"></i>
 				</div>
@@ -113,12 +113,12 @@
 
 	<!-- Create a Twitch.Player object. This will render within the placeholder div -->
 	<script type="text/javascript">
-		new Twitch.Player("twitch-embed", {channel: {{ twitch.name|json_encode()|raw }}});
+		new Twitch.Player("twitch-embed", {channel: {{ channelname|json_encode()|raw }}});
 	</script>
 
 	<script type="text/javascript">
 		new Twitch.Player("twitch-embed-cinema", {
-channel: {{ twitch.name|json_encode()|raw }},
+channel: {{ channelname|json_encode()|raw }},
 width: 1000
 });
 	</script>

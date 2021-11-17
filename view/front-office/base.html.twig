@@ -5,17 +5,18 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>LetsPlayMatsu.fr |
+		<title>{{ constant('_SITETITLE') }}
+			|
 			{% block title %}Welcome To My World
 			{% endblock %}
 		</title>
 		<meta
-		name="description" content="Créateur de contenu vidéo / French Streamer and Videomaker">
+		name="description" content="{{ constant('_DESCRIPTION') }}">
 		<!-- CSS -->
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet"/>
 		<link href="/asset/style.css" rel="stylesheet"> {% block style %}{% endblock %}
-		<link rel="shortcut icon" href="/asset/img/logo.png" type="image/x-icon">
+		<link rel="shortcut icon" href="{{ constant('_LOGO') }}" type="image/x-icon">
 	</head>
 
 	<body>
@@ -33,7 +34,7 @@
 				</a>
 			</div>
 			<div class="logo">
-				<img class="animate__animated animate__slideInDown" src="/asset/img/logo.png" alt="">
+				<img class="animate__animated animate__slideInDown" src="{{ constant('_LOGO') }}" alt="">
 			</div>
 			<div class="social animate__animated animate__slideInLeft">
 				<a href="">
@@ -95,7 +96,7 @@
 		<!-- Menu Desktop -->
 		<div id="menu-desktop">
 			<div class="logo">
-				<img src="/asset/img/logo.png" alt="">
+				<img src="{{ constant('_LOGO') }}" alt="">
 			</div>
 			<div class="social">
 				<a href="">
@@ -162,7 +163,7 @@
 
 				<menu class="menu-footer">
 					<ul>
-						<li><a href="mailto:contact@anthonyalves.fr">contact professionel</a></li>
+						<li><a href="mailto:{{ constant('_EMAIL') }}">contact professionel</a></li>
 						<li><a href="mailto:contact@anthonyalves.fr">signaler un bug</a></li>
 						<li><a onclick="creditbox()" style="cursor: pointer;">credits</a></li>
 					</ul>

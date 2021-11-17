@@ -1,5 +1,6 @@
 <?php
 
+use Src\Controller\WebSiteController;
 use Src\Controller\DashBordController;
 
 /**
@@ -13,7 +14,7 @@ use Src\Controller\DashBordController;
  *                           [ROUTER URL OPTIONS AND CONFIGURATION]
  *
  * 
- * *                     Match all request URIs
+ *                       Match all request URIs
  * [i]                   Match an integer
  * [i:id]                Match an integer as 'id'
  * [a:action]            Match alphanumeric characters as 'action'
@@ -29,7 +30,6 @@ use Src\Controller\DashBordController;
 #######################
 ## Front Office
 #######################
-
 
 #Home Page
 $router->map('GET', '/', function () {
@@ -80,13 +80,19 @@ $router->map('GET', '/calendrier-de-mes-streams', function () {
 #Deconnexion Page
 $router->map('GET', '/deconnexion', function () {
     $controller = new Src\Controller\WebSiteController();
-    $controller->home();
+    $controller->deconnexion();
 });
 
 #Login Page
 $router->map('GET', '/login', function () {
     $controller = new Src\Controller\WebSiteController();
-    $controller->home();
+    $controller->login();
+});
+
+#Login Page
+$router->map('POST', '/login', function () {
+    $controller = new Src\Controller\WebSiteController();
+    $controller->login();
 });
 
 #######################
@@ -108,37 +114,6 @@ $router->map('GET', '/admin/general', function () {
 $router->map('POST', '/admin/general', function () {
     $controller = new Src\Controller\DashBordController();
     $controller->general();
-});
-
-#Contact setting
-$router->map('GET', '/admin/contact', function () {
-    $controller = new Src\Controller\DashBordController();
-    $controller->contact();
-});
-
-$router->map('GET', '/admin/contact/[i:id]/remove', function ($id) {
-    $controller = new Src\Controller\DashBordController();
-    $controller->contactremove($id);
-});
-
-$router->map('GET', '/admin/contact/categorie', function () {
-    $controller = new Src\Controller\DashBordController();
-    $controller->contactcategory();
-});
-
-$router->map('GET', '/admin/contact/categorie/[i:id]', function ($id) {
-    $controller = new Src\Controller\DashBordController();
-    $controller->contactcategoryedit($id);
-});
-
-$router->map('POST', '/admin/contact/categorie/[i:id]', function ($id) {
-    $controller = new Src\Controller\DashBordController();
-    $controller->contactcategory($id);
-});
-
-$router->map('GET', '/admin/contact/categorie/[i:id]/remove', function ($id) {
-    $controller = new Src\Controller\DashBordController();
-    $controller->contactcategoryremove($id);
 });
 
 #Live setting
@@ -266,6 +241,16 @@ $router->map('POST', '/admin/donation', function () {
 $router->map('GET', '/admin/calendrier', function () {
     $controller = new Src\Controller\DashBordController();
     $controller->calendar();
+});
+
+$router->map('GET', '/admin/calendrier/add', function () {
+    $controller = new Src\Controller\DashBordController();
+    $controller->calendaradd();
+});
+
+$router->map('POST', '/admin/calendrier/add', function () {
+    $controller = new Src\Controller\DashBordController();
+    $controller->calendaradd();
 });
 
 $router->map('GET', '/admin/calendrier/[i:id]', function ($id) {

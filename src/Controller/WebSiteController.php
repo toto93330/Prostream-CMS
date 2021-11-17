@@ -29,20 +29,45 @@ class WebSiteController
     }
 
     #######################
+    ## Login
+    #######################
+    function login()
+    {
+        $this->render('front-office/login', []);
+    }
+
+
+    #######################
+    ## DECONNEXION
+    #######################
+    function deconnexion()
+    {
+    }
+
+    #######################
     ## HOME
     #######################
     function home()
     {
-
-        // Init Twitch Info
-        $stream = (new Twitch())->getStreamInfo();
-
-        // Get Twitch data 
-        $twitch = (new \Src\Model\Twitch())->findAll();
+        $twitch = new Twitch();
+        //GET STREAM STATUS
+        $channeltitle = $twitch->getTitle();
+        $channelviewers = $twitch->getViews();
+        $channelname = $twitch->getChannelName();
+        //GET STREAM LINK
+        $linksubscribe = $twitch->getLinkSubcribe();
+        $linkbits = $twitch->getLinkBits();
+        $linkreplay = $twitch->getLinkReplay();
+        $linkboutique = $twitch->getLinkShop();
 
         $this->render('front-office/home', [
-            'stream' => $stream,
-            'twitch' => $twitch[0],
+            'channeltitle' => $channeltitle,
+            'channelviewers' => $channelviewers,
+            'channelname' => $channelname,
+            'linksubscribe' => $linksubscribe,
+            'linkbits' => $linkbits,
+            'linkreplay' => $linkreplay,
+            'linkboutique' => $linkboutique,
         ]);
     }
 
@@ -127,8 +152,8 @@ class WebSiteController
     {
         $loader = new \Twig\Loader\FilesystemLoader('../view/front-office');
         $twig = new \Twig\Environment($loader, [
-            'cache' => false,
-            'debug' => true,
+            'cache' => '../cache',
+            'debug' => false,
         ]);
 
         $twig->addExtension(new \Twig\Extension\DebugExtension());

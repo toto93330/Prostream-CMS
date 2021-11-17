@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Gestion des reseaux sociaux
+{% block title %}Gestion Des Categories
 {% endblock %}
 
 
@@ -8,7 +8,7 @@
 
 	<div class="card">
 		<div class="card-header">
-			<h5>Reseaux sociaux</h5>
+			<h5>Categories des Commandes</h5>
 		</div>
 		<div class="card-block">
 			<div class="row">
@@ -17,8 +17,8 @@
 
 					<div class="card">
 						<div class="card-header">
-							<h5>Gerer facilement vos liens sociaux</h5>
-							<span>cette page liste les liens disponible dans le menu du site vous pouvez en rajouter ou en supprimer.</span>
+							<h5>Gerer les categories</h5>
+							<span>cette page liste les categories de vos commandes de stream vous pouvez en rajouter ou en supprimer.</span>
 							<div class="card-header-right">
 								<ul class="list-unstyled card-option">
 									<li>
@@ -36,20 +36,14 @@
 									<thead>
 										<tr>
 											<th>#</th>
-											<th>name</th>
-											<th>icon</th>
-											<th>link</th>
-											<th>option</th>
+											<th>nom</th>
+											<th>options</th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr>
 											<th scope="row">1</th>
-											<td>facebook</td>
-											<td>
-												<i class="fab fa-facebook-f"></i>
-											</td>
-											<td>#</td>
+											<td>fun</td>
 											<td>
 												<button class="btn btn-success">
 													<i class="fas fa-edit"></i>
@@ -67,7 +61,9 @@
 					</div>
 
 
-					<button class="btn btn-success waves-effect waves-light">Ajouter un lien</button>
+					<a href="/admin/commandes/categorie/add">
+						<button class="btn btn-success waves-effect waves-light">Ajouter une categorie</button>
+					</a>
 				</div>
 
 

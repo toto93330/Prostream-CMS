@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Ajouter une categorie
+{% endblock %}
+
+
+{% block content %}
+
+	<div class="card">
+		<div class="card-header">
+			<h5>Ajouter une categorie</h5>
+		</div>
+		<div class="card-block">
+			<div class="row">
+
+				<div class="col-sm-12">
+
+					<form action="#" method="post" style="min-width: 400px;">
+
+
+						<div class="form-group form-default form-static-label">
+							<label for="name">
+								Titre de la categorie</label>
+							<input type="text" name="name" class="form-control">
+							<span class="form-bar"></span>
+						</div>
+
+						<button class="btn waves-effect waves-light btn-primary btn-outline-primary">
+							Ajouter cette categorie</button>
+					</form>
+
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}

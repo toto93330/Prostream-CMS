@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}La Page Que Tu Demande N'existe Pas/Ou Plus
+{% endblock %}
+
+
+{% block content %}
+	<section id="block-container">
+		<div id="block-bio">
+			<h1>{{page.title}}</h1>
+			<div class="line"></div>
+			{{ page.content|raw }}
+		</div>
+	</section>
+{% endblock %}

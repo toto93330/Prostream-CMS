@@ -2,6 +2,8 @@
 
 namespace Src\Controller;
 
+use Src\Model\General;
+
 /**
  * This Class it's for admin dashbord controller.
  * @author Anthony Alves <www.anthonyalves.fr>
@@ -24,9 +26,9 @@ class DashBordController
     function general()
     {
 
-        if (!empty($_POST)) {
-
-            var_dump($_REQUEST);
+        if ($_POST) {
+            $request = new General();
+            $request->editgeneral();
         }
 
         $this->render('back-office/general', []);
@@ -149,6 +151,11 @@ class DashBordController
         $this->render('back-office/calendar', []);
     }
 
+    function calendaradd()
+    {
+        $this->render('back-office/calendaradd', []);
+    }
+
     function calendarremove($id)
     {
     }
@@ -176,40 +183,14 @@ class DashBordController
     }
 
     #######################
-    ## Contact
-    #######################
-    function contact()
-    {
-        $this->render('back-office/contact', []);
-    }
-
-    function contactremove($id)
-    {
-    }
-
-    function contactcategory()
-    {
-        $this->render('back-office/contactcategory', []);
-    }
-
-    function contactcategoryedit($edit)
-    {
-        $this->render('back-office/contactcategoryedit', []);
-    }
-
-    function contactcategoryremove($id)
-    {
-    }
-
-    #######################
     ## ROUTE RENDER
     #######################
     protected function render(string $viewName, array $args)
     {
         $loader = new \Twig\Loader\FilesystemLoader('../view/back-office');
         $twig = new \Twig\Environment($loader, [
-            'cache' => false,
-            'debug' => true,
+            'cache' => '../cache',
+            'debug' => false,
         ]);
         $twig->addExtension(new \Twig\Extension\DebugExtension());
 

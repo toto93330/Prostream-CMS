@@ -1,0 +1,87 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Gestion Du calendrier de la semaine
+{% endblock %}
+
+
+{% block content %}
+
+	<div class="card">
+		<div class="card-header">
+			<h5>Les evenement de cette semaine</h5>
+		</div>
+		<div class="card-block">
+			<div class="row">
+
+				<div class="col-sm-12">
+
+					<div class="card">
+						<div class="card-header">
+							<h5>Gerer votre calendrier</h5>
+							<span>cette page liste les evenement de la semaine numero 41 vous pouvez en rajouter ou supprimer.</span>
+							<div class="card-header-right">
+								<ul class="list-unstyled card-option">
+									<li>
+										<i class="fa fa fa-wrench open-card-option"></i>
+									</li>
+									<li>
+										<i class="fa fa-window-maximize full-card"></i>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="card-block table-border-style">
+							<div class="table-responsive">
+								<table class="table table-inverse">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>jour</th>
+											<th>debut</th>
+											<th>fin</th>
+											<th>titre du live</th>
+											<th>image</th>
+											<th>toute la journée ?</th>
+											<th>option</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row">1</th>
+											<td>
+												Lundi
+											</td>
+											<td>08:00:00</td>
+											<td>21:30:00</td>
+											<td>Animal crossing</td>
+											<td><img src="https://cdn03.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons.jpg" alt="evenement" style="max-height:50px"></td>
+											<td>non</td>
+											<td>
+												<button class="btn btn-success">
+													<i class="fas fa-edit"></i>
+												</button>
+												<button class="btn btn-danger">
+													<i class="fas fa-trash-alt"></i>
+												</button>
+											</td>
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+
+
+					<a href="/admin/calendrier/add">
+						<button class="btn btn-success waves-effect waves-light">Ajouter un evenement</button>
+					</a>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}

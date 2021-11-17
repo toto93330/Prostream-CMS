@@ -1,25 +1,31 @@
 <?php
 
-###
-# VERIF WEBSITE IS INSTALLED
-###
-
+use Src\Function\websiteConfig;
+####
+# SESSION
+####
+session_start();
 
 ###
 # AUTOLOAD
 ###
 require_once '../vendor/autoload.php';
 
+###
+# VERIF WEBSITE IS INSTALLED
+###
+
+###
+# GENERAL CONFIG
+###
+
+websiteConfig::generalConfig();
+
 ####
 # INIT ROUTE
 ####
 $router = new AltoRouter();
 require_once '../config/routes.php';
-
-####
-# SESSION
-####
-session_start();
 
 # call closure or throw 404 status CALL CLOSURE OR THROW 404 STATUS
 $match = $router->match();
