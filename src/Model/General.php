@@ -22,8 +22,10 @@ class General extends Model
      *
      * @return void
      */
-    public function editgeneral()
+    public function editGeneral()
     {
+        //VERIF IF INPUT IS SUMITED
+        $modified = 0;
 
         if (!empty($_FILES['logo']['name'])) {
             $path = $_FILES['logo']['name'];
@@ -33,30 +35,58 @@ class General extends Model
             $linkfile = "/upload/img/$newfilename";
             $stmt = $this->dbConnect()->prepare("UPDATE general SET logo = '$linkfile' WHERE 1");
             $stmt->execute();
+
+            //IF SUMITED
+            $modified = 1;
         }
 
         if (!empty($_POST['title'])) {
-            $value = $_POST['title'];
+            $value = htmlspecialchars($_POST['title']);
             $stmt = $this->dbConnect()->prepare("UPDATE general SET title = '$value' WHERE 1");
             $stmt->execute();
+
+            //IF SUMITED
+            $modified = 1;
+        }
+
+        if (!empty($_POST['googleapi'])) {
+            $value = htmlspecialchars($_POST['googleapi']);
+            $stmt = $this->dbConnect()->prepare("UPDATE general SET googleapi = '$value' WHERE 1");
+            $stmt->execute();
+
+            //IF SUMITED
+            $modified = 1;
         }
 
         if (!empty($_POST['description'])) {
-            $value = $_POST['description'];
+            $value = htmlspecialchars($_POST['description']);
             $stmt = $this->dbConnect()->prepare("UPDATE general SET description = '$value' WHERE 1");
             $stmt->execute();
+
+            //IF SUMITED
+            $modified = 1;
         }
 
         if (!empty($_POST['email'])) {
-            $value = $_POST['email'];
+            $value = htmlspecialchars($_POST['email']);
             $stmt = $this->dbConnect()->prepare("UPDATE general SET email = '$value' WHERE 1");
             $stmt->execute();
+
+            //IF SUMITED
+            $modified = 1;
         }
 
         if (!empty($_POST['maintenance'])) {
-            $value = $_POST['maintenance'];
+            $value = htmlspecialchars($_POST['maintenance']);
             $stmt = $this->dbConnect()->prepare("UPDATE general SET maintenance = '$value' WHERE 1");
             $stmt->execute();
+
+            //IF SUMITED
+            $modified = 1;
+        }
+
+        if ($modified == 1) {
+            header("location: /admin/general?success=1");
         }
     }
 }

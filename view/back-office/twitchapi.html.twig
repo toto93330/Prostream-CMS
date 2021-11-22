@@ -20,9 +20,17 @@
 						<div class="form-group form-default form-static-label">
 							<label for="twitch-name">
 								Nom chaine twitch</label>
-							<input type="text" name="twitch-name" class="form-control" placeholder="lestplaymatsu">
+							<input type="text" name="twitch-name" class="form-control" placeholder="lestplaymatsu" value="{{twitch.name}}">
 							<span class="form-bar"></span>
 						</div>
+
+						{% if get.error == 1 %}
+							<p class="text-center" style="color:red">Le champ ne peux pas etre null</p>
+						{% endif %}
+
+						{% if get.success == 1 %}
+							<p class="text-center" style="color:green">Modification enregistrer</p>
+						{% endif %}
 
 						<button class="btn waves-effect waves-light btn-primary btn-outline-primary">
 							Enregistrer</button>

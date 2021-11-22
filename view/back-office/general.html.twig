@@ -20,47 +20,68 @@
 						<div class="form-group form-default form-static-label">
 							<label for="title">
 								Titre du site</label>
-							<input type="text" name="title" class="form-control" placeholder="Enter User Name">
+							<input type="text" name="title" class="form-control" placeholder="Titre du site" value="{{general.title}}">
 							<span class="form-bar"></span>
 						</div>
 						<div class="form-group form-default form-static-label">
 							<label for="description">
 								Description du site</label>
-							<input type="text" name="description" class="form-control" placeholder="Enter User Name">
+							<input type="text" name="description" class="form-control" placeholder="Description du site" value="{{general.description}}">
 							<span class="form-bar"></span>
 						</div>
 						<div class="form-group form-default form-static-label">
 							<label for="email">
 								Email de contact de l'administrateur</label>
-							<input type="text" name="email" class="form-control" placeholder="Enter User Name">
+							<input type="email" name="email" class="form-control" placeholder="Email de l'administrateur" value="{{general.email}}">
 							<span class="form-bar"></span>
 						</div>
 						<div class="form-group form-default form-static-label">
 							<label for="logo">
 								Logo du site</label>
-							<input type="file" name="logo" class="form-control">
-							<span class="form-bar"></span>
-						</div>
-						<div class="form-group form-default form-static-label">
-							<label for="maintenance">
-								Site en maintenance ?</label>
-							<select name="select" class="form-control fill">
-								<option value="0">Non</option>
-								<option value="1">Oui</option>
-							</select>
-							<span class="form-bar"></span>
+							<center><img src="{{general.logo}}" alt="logo" style="max-height:50px"><center>
+									<br>
+									<input type="file" name="logo" class="form-control">
+									<span class="form-bar"></span>
+								</div>
+								<div class="form-group form-default form-static-label">
+									<label for="googleapi">
+										Clef API GOOGLE CAPTCHA</label>
+									<input type="googleapi" name="googleapi" class="form-control" placeholder="votre clef google api" value="{{general.googleapi}}">
+									<span class="form-bar"></span>
+								</div>
+								<div class="form-group form-default form-static-label">
+									<label for="maintenance">
+										Site en maintenance ?</label>
+									<select name="select" class="form-control fill">
+										{% if general.maintenance == 0 %}
+											<option value="0" selected>Non</option>
+											<option value="1">Oui</option>
+										{% else %}
+											<option value="0">Non</option>
+											<option value="1" selected>Oui</option>
+										{% endif %}
+									</select>
+									<span class="form-bar"></span>
+								</div>
+
+								<center>
+									<button class="btn waves-effect waves-light btn-primary btn-outline-primary">
+										Enregistrer</button>
+								</center>
+
+								{% if get.success == 1 %}
+
+									<p class="text-center" style="color:green">Information Enregistrer</p>
+
+								{% endif %}
+							</form>
+
 						</div>
 
-						<button class="btn waves-effect waves-light btn-primary btn-outline-primary">
-							Enregistrer</button>
-					</form>
 
+					</div>
 				</div>
-
-
 			</div>
-		</div>
-	</div>
 
 
-{% endblock %}
+		{% endblock %}

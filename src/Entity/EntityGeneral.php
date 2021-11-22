@@ -15,6 +15,7 @@ class EntityGeneral
     protected $description;
     protected $email;
     protected $logo;
+    protected $googleapi;
     protected $maintenance;
 
     ////
@@ -70,6 +71,16 @@ class EntityGeneral
     function getLogo()
     {
         return $this->logo;
+    }
+
+    /**
+     * Return Google Api KEY
+     *
+     * @return string
+     */
+    function getGoogleapi()
+    {
+        return $this->googleapi;
     }
 
     /**
@@ -141,6 +152,17 @@ class EntityGeneral
     function setLogo($logo)
     {
         $this->logo = $logo;
+    }
+
+    /**
+     * Set Google Api Key
+     *
+     * @param string
+     * @return void
+     */
+    function setGoogleapi($googleapi)
+    {
+        $this->googleapi = $googleapi;
     }
 
     /**

@@ -20,27 +20,36 @@
 						<div class="form-group form-default form-static-label">
 							<label for="link-subcribe">
 								lien d'abonnement</label>
-							<input type="text" name="link-subcribe" class="form-control" placeholder="https://">
+							<input type="text" name="link-subcribe" class="form-control" placeholder="https://" value="{{twitch.linksubscribe}}">
 							<span class="form-bar"></span>
 						</div>
 						<div class="form-group form-default form-static-label">
 							<label for="link-bits">
 								lien bits et badge</label>
-							<input type="text" name="link-bits" class="form-control" placeholder="https://">
+							<input type="text" name="link-bits" class="form-control" placeholder="https://" value="{{twitch.linkbits}}">
 							<span class="form-bar"></span>
 						</div>
 						<div class="form-group form-default form-static-label">
 							<label for="link-replay">
 								lien replay des lives</label>
-							<input type="text" name="link-replay" class="form-control" placeholder="https://">
+							<input type="text" name="link-replay" class="form-control" placeholder="https://" value="{{twitch.linkreplay}}">
 							<span class="form-bar"></span>
 						</div>
 						<div class="form-group form-default form-static-label">
 							<label for="link-shop">
 								lien boutique</label>
-							<input type="text" name="link-shop" class="form-control" placeholder="https://">
+							<input type="text" name="link-shop" class="form-control" placeholder="https://" value="{{twitch.linkshop}}">
 							<span class="form-bar"></span>
 						</div>
+
+
+						{% if get.error == 1 %}
+							<p class="text-center" style="color:red">vous devez remplir tous les champ</p>
+						{% endif %}
+
+						{% if get.success == 1 %}
+							<p class="text-center" style="color:green">Modification enregistrer</p>
+						{% endif %}
 
 						<button class="btn waves-effect waves-light btn-primary btn-outline-primary">
 							Enregistrer</button>

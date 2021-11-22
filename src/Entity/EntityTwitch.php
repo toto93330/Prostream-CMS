@@ -12,9 +12,6 @@ class EntityTwitch
 {
     protected $id;
     protected $name;
-    protected $clientkey;
-    protected $accesstoken;
-    protected $userkey;
     protected $linksubscribe;
     protected $linkbits;
     protected $linkreplay;
@@ -43,36 +40,6 @@ class EntityTwitch
     function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Return Twitch Client Id
-     *
-     * @return string
-     */
-    function getClientkey()
-    {
-        return $this->clientkey;
-    }
-
-    /**
-     * Return Twitch Access Token
-     *
-     * @return string
-     */
-    function getAccesstoken()
-    {
-        return $this->accesstoken;
-    }
-
-    /**
-     * Return Twitch Channel Id
-     *
-     * @return mixed
-     */
-    function getUserkey()
-    {
-        return $this->userkey;
     }
 
     /**
@@ -150,40 +117,6 @@ class EntityTwitch
     {
         $this->name = $name;
     }
-
-    /**
-     * Set Twitch Client Key
-     *
-     * @param string
-     * @return void
-     */
-    function setClientkey($clientkey)
-    {
-        $this->clientkey = $clientkey;
-    }
-
-    /**
-     * Set Twitch Access Token
-     *
-     * @param string
-     * @return void
-     */
-    function setAccessToken($accesstoken)
-    {
-        $this->accesstoken = $accesstoken;
-    }
-
-    /**
-     * Set Twitch channel id
-     *
-     * @param int
-     * @return void
-     */
-    function setUserkey($userkey)
-    {
-        $this->userkey = $userkey;
-    }
-
 
     /**
      * Set Twitch channel id

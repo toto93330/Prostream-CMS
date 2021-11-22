@@ -666,6 +666,7 @@ iframe {
     transition: .4s;
     color: rgb(30, 142, 233);
     border: 2px solid rgb(30, 142, 233);
+    cursor: pointer;
 }
 
 .btn-primary:hover {
@@ -673,6 +674,7 @@ iframe {
     transform: rotate(12);
     color: whitesmoke;
     border: 2px solid rgb(255, 255, 255);
+    background-color: transparent;
 }
 
 /* MODULE DONATION */

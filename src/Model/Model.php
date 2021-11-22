@@ -93,6 +93,25 @@ abstract class Model
         return $list;
     }
 
+    /**
+     * Find BY ID defined items on database
+     *
+     * @return object
+     */
+    public function findByID($id)
+    {
+        $list = [];
+
+        $stmt = $this->dbConnect()->prepare("SELECT * FROM $this->table WHERE id = $id");
+        $stmt->execute();
+        $items = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+        foreach ($items as $articleRaw) {
+            $list[] = $this->getInstance($articleRaw, $this->entity);
+        }
+
+        return $list;
+    }
 
     /**
      * Remove Data
@@ -103,5 +122,9 @@ abstract class Model
     {
         $stmt = $this->dbConnect()->prepare("DELETE FROM $this->table WHERE id = ?");
         $stmt->execute([$id]);
+
+        $link = $_SERVER['HTTP_REFERER'];
+
+        header("location: $link?removed=1");
     }
 }

@@ -43,22 +43,33 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<th scope="row">1</th>
-											<td>facebook</td>
-											<td>
-												<i class="fab fa-facebook-f"></i>
-											</td>
-											<td>#</td>
-											<td>
-												<button class="btn btn-success">
-													<i class="fas fa-edit"></i>
-												</button>
-												<button class="btn btn-danger">
-													<i class="fas fa-trash-alt"></i>
-												</button>
-											</td>
-										</tr>
+
+										{% for social in socials %}
+
+											<tr>
+												<th scope="row">{{ social.id }}</th>
+												<td>{{ social.name }}</td>
+												<td>
+													{{ social.icon|raw }}
+												</td>
+												<td>{{ social.link }}</td>
+												<td>
+													<a href="/admin/social-link/{{ social.id }}">
+														<button class="btn btn-success">
+															<i class="fas fa-edit"></i>
+														</button>
+													</a>
+													<a href="/admin/social-link/{{ social.id }}/remove">
+														<button class="btn btn-danger">
+															<i class="fas fa-trash-alt"></i>
+														</button>
+													</a>
+												</td>
+											</tr>
+
+
+										{% endfor %}
+
 
 									</tbody>
 								</table>
@@ -66,8 +77,19 @@
 						</div>
 					</div>
 
+					{% if get.removed == 1 %}
+						<p style="color:red" class="text-center">
+							Lien Supprimé</p>
+					{% endif %}
 
-					<button class="btn btn-success waves-effect waves-light">Ajouter un lien</button>
+					{% if get.add == 1 %}
+						<p style="color:green" class="text-center">
+							Lien Rajouté</p>
+					{% endif %}
+
+					<a href="/admin/social-link/add">
+						<button class="btn btn-success waves-effect waves-light">Ajouter un lien</button>
+					</a>
 				</div>
 
 

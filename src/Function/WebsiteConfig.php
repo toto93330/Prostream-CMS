@@ -34,5 +34,6 @@ class websiteConfig
         define('_DESCRIPTION', $items['description']);
         define('_EMAIL', $items['email']);
         define('_LOGO', $items['logo']);
+        define('_GOOGLEAPI', $items['googleapi']);
     }
 }
