@@ -21,10 +21,14 @@
 						<div class="form-group form-default form-static-label">
 							<label for="name">
 								Titre de la categorie</label>
-							<input type="text" name="name" class="form-control">
+							<input type="text" name="name" class="form-control" value="{{edit.name}}">
 							<span class="form-bar"></span>
 						</div>
+						{% if get.success == 1 %}
 
+							<p class="text-center" style="color:green">Nom De La Categorie Modifier</p>
+
+						{% endif %}
 						<button class="btn waves-effect waves-light btn-primary btn-outline-primary">
 							Editer</button>
 					</form>

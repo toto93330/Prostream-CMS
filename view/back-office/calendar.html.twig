@@ -18,7 +18,7 @@
 					<div class="card">
 						<div class="card-header">
 							<h5>Gerer votre calendrier</h5>
-							<span>cette page liste les evenement de la semaine numero 41 vous pouvez en rajouter ou supprimer.</span>
+							<span>cette page liste les evenements de cette semaine vous pouvez en rajouter ou supprimer.</span>
 							<div class="card-header-right">
 								<ul class="list-unstyled card-option">
 									<li>
@@ -46,25 +46,37 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<th scope="row">1</th>
-											<td>
-												Lundi
-											</td>
-											<td>08:00:00</td>
-											<td>21:30:00</td>
-											<td>Animal crossing</td>
-											<td><img src="https://cdn03.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons.jpg" alt="evenement" style="max-height:50px"></td>
-											<td>non</td>
-											<td>
-												<button class="btn btn-success">
-													<i class="fas fa-edit"></i>
-												</button>
-												<button class="btn btn-danger">
-													<i class="fas fa-trash-alt"></i>
-												</button>
-											</td>
-										</tr>
+										{% for calendar in calendars %}
+											<tr>
+												<th scope="row">{{calendar.id}}</th>
+												<td>
+													{{calendar.dayID.name}}
+												</td>
+												<td>{{calendar.startevenat}}</td>
+												<td>{{calendar.endevenat}}</td>
+												<td>{{calendar.name}}</td>
+												<td><img src="{{calendar.image}}" alt="evenement" style="max-height:50px"></td>
+												<td>
+													{% if calendar.isfullday == 1 %}
+														Oui
+													{% else %}
+														Non
+													{% endif %}
+												</td>
+												<td>
+													<a href="/admin/calendrier/{{calendar.id}}">
+														<button class="btn btn-success">
+															<i class="fas fa-edit"></i>
+														</button>
+													</a>
+													<a href="/admin/calendrier/{{calendar.id}}/remove">
+														<button class="btn btn-danger">
+															<i class="fas fa-trash-alt"></i>
+														</button>
+													</a>
+												</td>
+											</tr>
+										{% endfor %}
 
 									</tbody>
 								</table>
@@ -72,6 +84,15 @@
 						</div>
 					</div>
 
+					{% if get.removed == 1 %}
+						<p style="color:red" class="text-center">
+							Commande Supprimé</p>
+					{% endif %}
+
+					{% if get.add == 1 %}
+						<p style="color:green" class="text-center">
+							Commande Rajouté</p>
+					{% endif %}
 
 					<a href="/admin/calendrier/add">
 						<button class="btn btn-success waves-effect waves-light">Ajouter un evenement</button>

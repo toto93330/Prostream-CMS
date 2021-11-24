@@ -20,34 +20,42 @@
 						<div class="form-group form-default form-static-label">
 							<label for="title">
 								Titre</label>
-							<input type="text" name="title" class="form-control" placeholder="Titre de la page">
+							<input type="text" name="title" class="form-control" placeholder="Titre de la page" value="{{donation.title}}">
 							<span class="form-bar"></span>
 						</div>
 						<div class="form-group form-default form-static-label">
-							<textarea name="content" id="content" style="min-height: 400px;"></textarea>
+							<textarea name="content" id="content" style="min-height: 400px;">{{donation.content|raw}}</textarea>
 							<span class="form-bar"></span>
 						</div>
 						<div class="form-group form-default form-static-label">
 							<label for="paypal">
 								Lien don paypal</label>
-							<input type="text" name="paypal" class="form-control" placeholder="https://">
+							<input type="text" name="paypal" class="form-control" placeholder="https://" value="{{donation.linkdonationpaypal}}">
 							<span class="form-bar"></span>
 						</div>
 						<div class="form-group form-default form-static-label">
 							<label for="streamlab">
 								Lien don streamlab</label>
-							<input type="text" name="streamlab" class="form-control" placeholder="https://">
+							<input type="text" name="streamlab" class="form-control" placeholder="https://" value="{{donation.linkdonationstreamlab}}">
 							<span class="form-bar"></span>
 						</div>
 						<div class="form-group form-default form-static-label">
-							<label for="block_active">
+							<label for="actived">
 								Module Activé</label>
-							<select name="select" class="form-control fill">
-								<option value="1">Oui</option>
-								<option value="0">Non</option>
+							<select name="actived" class="form-control fill">
+								<option value="1" {% if donation.actived == 1 %} selected {% endif %}>Oui</option>
+								<option value="0" {% if donation.actived == 0 %} selected {% endif %}>Non</option>
 							</select>
 							<span class="form-bar"></span>
 						</div>
+						{% if get.error == 1 %}
+							<p class="text-center" style="color:red">Les champs ne peuvent pas être null</p>
+						{% endif %}
+
+						{% if get.success == 1 %}
+							<p class="text-center" style="color:green">Modification enregistrer</p>
+						{% endif %}
+
 						<button class="btn waves-effect waves-light btn-primary btn-outline-primary">
 							Enregistrer</button>
 					</form>

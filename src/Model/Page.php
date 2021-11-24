@@ -25,7 +25,7 @@ class Page extends Model
             $content = htmlspecialchars($_POST['content']);
             $actived = htmlspecialchars($_POST['actived']);
 
-            $stmt = $this->dbConnect()->prepare("UPDATE modul_page SET title=? , content=? , actived=? WHERE id=1");
+            $stmt = $this->dbConnect()->prepare("UPDATE $this->table SET title=? , content=? , actived=? WHERE id=1");
             $stmt->execute(array($title, $content, $actived));
 
             //IF SUMITED

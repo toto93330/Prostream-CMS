@@ -21,39 +21,44 @@
 							<label for="category">
 								Categorie de la commande</label>
 							<select name="category" class="form-control fill">
-								<option value="0">Fun</option>
-								<option value="1">Test</option>
+								{% for category in categorys %}
+									<option value="{{category.id}}" {% if category.id == command.categoryID.id %} selected {% endif %}>{{category.name}}</option>
+								{% endfor %}
 							</select>
 							<span class="form-bar"></span>
 						</div>
 						<div class="form-group form-default form-static-label">
 							<label for="command">
 								Commande</label>
-							<input type="text" name="command" class="form-control" placeholder="!test">
+							<input type="text" name="command" class="form-control" placeholder="!test" value="{{command.command}}">
 							<span class="form-bar"></span>
 						</div>
 						<div class="form-group form-default form-static-label">
 							<label for="content">
 								Ce que fait la commande ?</label>
-							<input type="text" name="content" class="form-control" placeholder="ceci est un test de commande cool qui tue et qui est super genial oulalal un truc de ouff.">
+							<input type="text" name="content" class="form-control" placeholder="ceci est un test de commande cool qui tue et qui est super genial oulalal un truc de ouff." value="{{command.content}}">
 							<span class="form-bar"></span>
 						</div>
 						<div class="form-group form-default form-static-label">
 							<label for="cost">
 								Prix de la commande</label>
-							<input type="number" name="cost" class="form-control">
+							<input type="number" name="cost" class="form-control" value="{{command.cost}}">
 							<span class="form-bar"></span>
 						</div>
 						<div class="form-group form-default form-static-label">
-							<label for="maintenance">
+							<label for="actived">
 								Activé ?</label>
-							<select name="select" class="form-control fill">
-								<option value="1">Oui</option>
-								<option value="0">Non</option>
+							<select name="actived" class="form-control fill">
+								<option value="1" {% if command.actived == 1 %} selected {% endif %}>Oui</option>
+								<option value="0" {% if command.actived == 0 %} selected {% endif %}>Non</option>
 							</select>
 							<span class="form-bar"></span>
 						</div>
+						{% if get.success == 1 %}
 
+							<p class="text-center" style="color:green">Command Modifier</p>
+
+						{% endif %}
 						<button class="btn waves-effect waves-light btn-primary btn-outline-primary">
 							Editer</button>
 					</form>

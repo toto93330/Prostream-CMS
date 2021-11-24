@@ -25,7 +25,7 @@ class Twitch extends Model
             $replay = htmlspecialchars($_POST['link-replay']);
             $shop = htmlspecialchars($_POST['link-shop']);
 
-            $stmt = $this->dbConnect()->prepare("UPDATE modul_twitch SET linksubcribe=? , linkbits=? , linkreplay=? , linkshop=? WHERE id=1");
+            $stmt = $this->dbConnect()->prepare("UPDATE $this->table SET linksubcribe=? , linkbits=? , linkreplay=? , linkshop=? WHERE id=1");
             $stmt->execute(array($subcribe, $bits, $replay, $shop));
 
             //IF SUMITED
@@ -46,7 +46,7 @@ class Twitch extends Model
         if (!empty($_POST['twitch-name'])) {
             $twitch = htmlspecialchars($_POST['twitch-name']);
 
-            $stmt = $this->dbConnect()->prepare("UPDATE modul_twitch SET `name`=? WHERE id=1");
+            $stmt = $this->dbConnect()->prepare("UPDATE $this->table SET `name`=? WHERE id=1");
             $stmt->execute(array($twitch));
 
             //IF SUMITED

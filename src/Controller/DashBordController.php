@@ -2,6 +2,11 @@
 
 namespace Src\Controller;
 
+use Src\Model\Calendar;
+use Src\Model\CalendarDay;
+use Src\Model\Commands;
+use Src\Model\CommandsCategory;
+use Src\Model\Donation;
 use Src\Model\Extension;
 use Src\Model\General;
 use Src\Model\Page;
@@ -171,39 +176,91 @@ class DashBordController
     #######################
     function commands()
     {
-        $this->render('back-office/commands', []);
+        $commands = (new Commands)->findAll();
+
+        $this->render('back-office/commands', [
+            'commands' => $commands,
+        ]);
     }
 
     function commandsremove($id)
     {
+        $remove = new Commands();
+        $remove->remove($id);
     }
 
     function commandsedit($id)
     {
-        $this->render('back-office/commandsedit', []);
+
+        $categories = (new CommandsCategory)->findAll();
+        $command = (new Commands)->findByID($id);
+
+        // VERIF IF RESQUEST POST EXIST
+        if ($_POST) {
+            $request = new Commands();
+            $request->editCommand($id);
+        }
+
+        $this->render('back-office/commandsedit', [
+            'categorys' => $categories,
+            'command' => $command[0],
+        ]);
     }
 
     function commandsadd()
     {
-        $this->render('back-office/commandsadd', []);
+        $categories = (new CommandsCategory)->findAll();
+
+        // VERIF IF RESQUEST POST EXIST
+        if ($_POST) {
+            $request = new Commands();
+            $request->addCommand();
+        }
+
+        $this->render('back-office/commandsadd', [
+            'categorys' => $categories
+        ]);
     }
 
     function commandscategory()
     {
-        $this->render('back-office/commandscategory', []);
+        $cats = (new CommandsCategory)->findAll();
+
+        $this->render('back-office/commandscategory', [
+            'categorys' => $cats
+        ]);
     }
 
     function commandscategoryremove($id)
     {
+        $remove = new CommandsCategory();
+        $remove->remove($id);
     }
 
     function commandscategoryedit($id)
     {
-        $this->render('back-office/commandscategoryedit', []);
+
+        $categorie = (new CommandsCategory)->findByID($id);
+
+        // VERIF IF RESQUEST POST EXIST
+        if ($_POST) {
+            $request = new CommandsCategory();
+            $request->editCommandsCategory($id);
+        }
+
+        $this->render('back-office/commandscategoryedit', [
+            'edit' => $categorie[0],
+        ]);
     }
 
     function commandscategoryadd()
     {
+        // VERIF IF RESQUEST POST EXIST
+        if ($_POST) {
+            $request = new CommandsCategory();
+            $request->addCommandsCategory();
+        }
+
         $this->render('back-office/commandscategoryadd', []);
     }
 
@@ -212,7 +269,19 @@ class DashBordController
     #######################
     function donation()
     {
-        $this->render('back-office/donation', []);
+
+        $donation = (new Donation)->findAll();
+
+        // VERIF IF RESQUEST POST EXIST
+        if ($_POST) {
+            $request = new Donation();
+            $request->editDonationPage();
+        }
+
+
+        $this->render('back-office/donation', [
+            'donation' => $donation[0]
+        ]);
     }
 
     #######################
@@ -220,21 +289,51 @@ class DashBordController
     #######################
     function calendar()
     {
-        $this->render('back-office/calendar', []);
+
+        $calendars = (new Calendar)->findAllOrderEventStart();
+
+
+        $this->render('back-office/calendar', [
+            'calendars' => $calendars,
+        ]);
     }
 
     function calendaradd()
     {
-        $this->render('back-office/calendaradd', []);
+        $days = (new CalendarDay)->findAll();
+
+        // VERIF IF RESQUEST POST EXIST
+        if ($_POST) {
+            $request = new Calendar();
+            $request->addEventCalendar();
+        }
+
+        $this->render('back-office/calendaradd', [
+            'days' => $days,
+        ]);
     }
 
     function calendarremove($id)
     {
+        $calendar = new Calendar();
+        $calendar->remove($id);
     }
 
     function calendaredit($id)
     {
-        $this->render('back-office/calendaredit', []);
+        $calendar = (new Calendar())->findByID($id);
+        $days = (new CalendarDay)->findAll();
+
+        // VERIF IF RESQUEST POST EXIST
+        if ($_POST) {
+            $request = new Calendar();
+            $request->editCalendar($id);
+        }
+
+        $this->render('back-office/calendaredit', [
+            'calendar' => $calendar[0],
+            'days' => $days
+        ]);
     }
 
     #######################

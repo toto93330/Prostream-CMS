@@ -41,18 +41,28 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<th scope="row">1</th>
-											<td>fun</td>
-											<td>
-												<button class="btn btn-success">
-													<i class="fas fa-edit"></i>
-												</button>
-												<button class="btn btn-danger">
-													<i class="fas fa-trash-alt"></i>
-												</button>
-											</td>
-										</tr>
+
+
+										{% for category in categorys %}
+
+											<tr>
+												<th scope="row">{{category.id}}</th>
+												<td>{{category.name}}</td>
+												<td>
+													<a href="/admin/commandes/categorie/{{category.id}}">
+														<button class="btn btn-success">
+															<i class="fas fa-edit"></i>
+														</button>
+													</a>
+													<a href="/admin/commandes/categorie/{{category.id}}/remove">
+														<button class="btn btn-danger">
+															<i class="fas fa-trash-alt"></i>
+														</button>
+													</a>
+												</td>
+											</tr>
+
+										{% endfor %}
 
 									</tbody>
 								</table>
@@ -60,6 +70,15 @@
 						</div>
 					</div>
 
+					{% if get.removed == 1 %}
+						<p style="color:red" class="text-center">
+							Catégorie Supprimé</p>
+					{% endif %}
+
+					{% if get.add == 1 %}
+						<p style="color:green" class="text-center">
+							Catégorie Rajouté</p>
+					{% endif %}
 
 					<a href="/admin/commandes/categorie/add">
 						<button class="btn btn-success waves-effect waves-light">Ajouter une categorie</button>

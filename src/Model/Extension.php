@@ -26,7 +26,7 @@ class Extension extends Model
             $chrome = htmlspecialchars($_POST['chrome']);
             $actived = htmlspecialchars($_POST['actived']);
 
-            $stmt = $this->dbConnect()->prepare("UPDATE modul_extension SET title=? , content=? , linkextensionfirefox=? , linkextensionchrome=? , actived=? WHERE id=1");
+            $stmt = $this->dbConnect()->prepare("UPDATE $this->table SET title=? , content=? , linkextensionfirefox=? , linkextensionchrome=? , actived=? WHERE id=1");
             $stmt->execute(array($title, $content, $firefox, $chrome, $actived));
 
             //IF SUMITED

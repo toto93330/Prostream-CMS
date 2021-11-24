@@ -45,24 +45,30 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<th scope="row">1</th>
-											<td>fun</td>
-											<td>
-												!test
-											</td>
-											<td>ceci est un test de commande cool qui tue et qui est super genial oulalal un truc de ouff.</td>
-											<td>0</td>
-											<td>1</td>
-											<td>
-												<button class="btn btn-success">
-													<i class="fas fa-edit"></i>
-												</button>
-												<button class="btn btn-danger">
-													<i class="fas fa-trash-alt"></i>
-												</button>
-											</td>
-										</tr>
+										{% for command in commands %}
+											<tr>
+												<th scope="row">{{command.id}}</th>
+												<td>{{command.categoryID.name}}</td>
+												<td>
+													{{command.command}}
+												</td>
+												<td>{{command.content}}</td>
+												<td>{{command.cost}}</td>
+												<td>{{command.actived}}</td>
+												<td>
+													<a href="/admin/commandes/{{command.id}}">
+														<button class="btn btn-success">
+															<i class="fas fa-edit"></i>
+														</button>
+													</a>
+													<a href="/admin/commandes/{{command.id}}/remove">
+														<button class="btn btn-danger">
+															<i class="fas fa-trash-alt"></i>
+														</button>
+													</a>
+												</td>
+											</tr>
+										{% endfor %}
 
 									</tbody>
 								</table>
@@ -70,6 +76,15 @@
 						</div>
 					</div>
 
+					{% if get.removed == 1 %}
+						<p style="color:red" class="text-center">
+							Commande Supprimé</p>
+					{% endif %}
+
+					{% if get.add == 1 %}
+						<p style="color:green" class="text-center">
+							Commande Rajouté</p>
+					{% endif %}
 
 					<a href="/admin/commandes/add">
 						<button class="btn btn-success waves-effect waves-light">Ajouter une commande</button>
