@@ -32,6 +32,10 @@ class Twitch
         return Connexion::dbConnect();
     }
 
+    /**
+     * Get Stream Status ONLINE = 1 / OFFLINE = 0
+     * @return int 
+     */
     function getChannelStatus()
     {
         $statut = file_get_contents('https://decapi.me/twitch/viewercount/' . $this->pseudo['name']);
@@ -43,11 +47,19 @@ class Twitch
         }
     }
 
+    /**
+     * Get Stream title
+     * @return string|false 
+     */
     function getTitle()
     {
         return file_get_contents('https://decapi.me/twitch/title/' . $this->pseudo['name']);
     }
 
+    /**
+     * Get Actuel view in live stream
+     * @return string|false 
+     */
     function getViews()
     {
         $views = file_get_contents('https://decapi.me/twitch/viewercount/' . $this->pseudo['name']);
@@ -58,46 +70,82 @@ class Twitch
         }
     }
 
+    /**
+     * Get channel name
+     * @return mixed 
+     */
     function getChannelName()
     {
         return $this->pseudo['name'];
     }
 
+    /**
+     * Get time to stream
+     * @return string|false 
+     */
     function getUpTime()
     {
         return file_get_contents('https://decapi.me/twitch/uptime/' . $this->pseudo['name']);
     }
 
+    /**
+     * Get number of follow
+     * @return string|false 
+     */
     function getFollows()
     {
         return file_get_contents('https://decapi.me/twitch/followcount/' . $this->pseudo['name']);
     }
 
+    /**
+     * Get last vod link
+     * @return string|false 
+     */
     function getVOD()
     {
         return file_get_contents('https://decapi.me/twitch/vod_replay/' . $this->pseudo['name']);
     }
 
+    /**
+     * Get Total view on channel
+     * @return string|false 
+     */
     function getTotalViews()
     {
         return file_get_contents('https://decapi.me/twitch/total_views/' . $this->pseudo['name']);
     }
 
+    /**
+     * Get Link Subcribe page
+     * @return mixed 
+     */
     function getLinkSubcribe()
     {
         return $this->pseudo['linksubcribe'];
     }
 
+    /**
+     * Get Link Bits page
+     * @return mixed 
+     */
     function getLinkBits()
     {
         return $this->pseudo['linkbits'];
     }
 
+    /**
+     * Get Link Replay page
+     * @return mixed 
+     */
     function getLinkReplay()
     {
         return $this->pseudo['linkreplay'];
     }
 
+    /**
+     * Get Link shop page
+     * @return mixed 
+     */
     function getLinkShop()
     {
         return $this->pseudo['linkshop'];

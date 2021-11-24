@@ -16,6 +16,10 @@ class Donation extends Model
         $this->table = 'modul_donation';
     }
 
+    /**
+     * Edit donation page on database
+     * @return void 
+     */
     function editDonationPage()
     {
 

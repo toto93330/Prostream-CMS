@@ -16,6 +16,10 @@ class Extension extends Model
         $this->table = 'modul_extension';
     }
 
+    /**
+     * Edit extension page on database
+     * @return void 
+     */
     function editExtensionPage()
     {
 

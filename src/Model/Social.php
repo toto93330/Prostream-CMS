@@ -16,6 +16,10 @@ class Social extends Model
         $this->table = 'social';
     }
 
+    /**
+     * Add New Social link on database
+     * @return void 
+     */
     function addSocial()
     {
 
@@ -36,7 +40,11 @@ class Social extends Model
         }
     }
 
-
+    /**
+     * Edit Social link on database
+     * @param mixed $id 
+     * @return void 
+     */
     function editSocial($id)
     {
 

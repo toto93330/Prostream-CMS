@@ -40,7 +40,11 @@ class Calendar extends Model
         return $list;
     }
 
-
+    /**
+     * edit event calendar on database
+     * @param mixed $id 
+     * @return void 
+     */
     function editCalendar($id)
     {
         var_dump($_POST);
@@ -78,7 +82,10 @@ class Calendar extends Model
         }
     }
 
-
+    /**
+     * add new event calendar on database
+     * @return void 
+     */
     function addEventCalendar()
     {
 

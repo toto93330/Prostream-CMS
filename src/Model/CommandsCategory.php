@@ -16,7 +16,11 @@ class CommandsCategory extends Model
         $this->table = 'modul_commands_category';
     }
 
-
+    /**
+     * edit command category in database
+     * @param mixed $id 
+     * @return void 
+     */
     function editCommandsCategory($id)
     {
 
@@ -34,7 +38,10 @@ class CommandsCategory extends Model
         }
     }
 
-
+    /**
+     * add new command category on database
+     * @return void 
+     */
     function addCommandsCategory()
     {
 

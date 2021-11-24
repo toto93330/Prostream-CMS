@@ -16,7 +16,10 @@ class Commands extends Model
         $this->table = 'modul_commands';
     }
 
-
+    /**
+     * add new command on database
+     * @return void 
+     */
     function addCommand()
     {
 
@@ -41,7 +44,11 @@ class Commands extends Model
         }
     }
 
-
+    /**
+     * edit command on database
+     * @param mixed $id 
+     * @return void 
+     */
     function editCommand($id)
     {
 

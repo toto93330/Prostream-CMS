@@ -16,7 +16,10 @@ class Page extends Model
         $this->table = 'modul_page';
     }
 
-
+    /**
+     * Edit page content on database
+     * @return void 
+     */
     function editPage()
     {
 

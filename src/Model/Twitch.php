@@ -16,6 +16,10 @@ class Twitch extends Model
         $this->table = 'modul_twitch';
     }
 
+    /**
+     * Add Live Twitch page link on database
+     * @return void 
+     */
     function addlink()
     {
 
@@ -39,7 +43,10 @@ class Twitch extends Model
         }
     }
 
-
+    /**
+     * Add Twitch name on database
+     * @return void 
+     */
     function addTwitchName()
     {
 
