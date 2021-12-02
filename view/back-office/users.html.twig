@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Gestion des lien page live
+{% block title %}Gestion des Utilisateurs
 {% endblock %}
 
 
@@ -8,23 +8,108 @@
 
 	<div class="card">
 		<div class="card-header">
-			<h5>Gestion des lien page live</h5>
+			<h5>Utilisateurs</h5>
 		</div>
 		<div class="card-block">
 			<div class="row">
 
 				<div class="col-sm-12">
 
-					<form action="#" method="POST">
-						<label for="name">Label de l'icon</label>
-						<input type="text" name="name" id="name">
-						<label for="icon">Icon FontAwesome</label>
-						<input type="text" name="icon" id="icon">
-						<label for="link">Label de l'icon</label>
-						<input type="text" name="link" id="link">
-					</form>
+					<div class="card">
+						<div class="card-header">
+							<h5>Gerer facilement vos Utilisateurs</h5>
+							<span>cette page liste les utilisateur disponible vous pouvez en rajouter ou en supprimer voir en editer c'est à vous de voir.</span>
+							<div class="card-header-right">
+								<ul class="list-unstyled card-option">
+									<li>
+										<i class="fa fa fa-wrench open-card-option"></i>
+									</li>
+									<li>
+										<i class="fa fa-window-maximize full-card"></i>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="card-block table-border-style">
+							<div class="table-responsive">
+								<table class="table table-inverse">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>email</th>
+											<th>avatar</th>
+											<th>password</th>
+											<th>rank</th>
+											<th>bannis ?</th>
+											<th>option</th>
+										</tr>
+									</thead>
+									<tbody>
 
+										{% for user in users %}
+
+											<tr>
+												<th scope="row">{{ user.id }}</th>
+												<td>{{ user.email }}</td>
+												<td>
+													<img src="{{ user.avatar }}" alt="avatar" style="max-width: 50px;">
+												</td>
+												<td>
+													<p style="color:red;">
+														::PROTECTED::</p>
+												</td>
+												<td>{{ user.rank.name }}</td>
+												<td>
+													{% if user.banned == 0 %}
+														<p style="color:green;">
+															Non</p>
+													{% else %}
+														<p style="color:red;">
+															Oui</p>
+													{% endif %}
+
+
+												</td>
+
+												<td>
+													<a href="/admin/utilisateur/{{ user.id }}">
+														<button class="btn btn-success">
+															<i class="fas fa-edit"></i>
+														</button>
+													</a>
+													<a href="/admin/utilisateur/{{ user.id }}/remove">
+														<button class="btn btn-danger">
+															<i class="fas fa-trash-alt"></i>
+														</button>
+													</a>
+												</td>
+											</tr>
+
+
+										{% endfor %}
+
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+
+					{% if get.removed == 1 %}
+						<p style="color:red" class="text-center">
+							Utilisateur Supprimé</p>
+					{% endif %}
+
+					{% if get.add == 1 %}
+						<p style="color:green" class="text-center">
+							Utilisateur Rajouté</p>
+					{% endif %}
+
+					<a href="/admin/utilisateur/add">
+						<button class="btn btn-success waves-effect waves-light">Ajouter un Utilisateur</button>
+					</a>
 				</div>
+
 
 			</div>
 		</div>

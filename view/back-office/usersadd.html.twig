@@ -1,0 +1,85 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Editer un utilisateur
+{% endblock %}
+
+
+{% block content %}
+
+	<div class="card">
+		<div class="card-header">
+			<h5>Editer un utilisateur</h5>
+		</div>
+		<div class="card-block">
+			<div class="row">
+
+				<div class="col-sm-12">
+
+					<form action="#" method="POST" style="min-width: 400px;" enctype="multipart/form-data">
+						<div class="form-group form-default form-static-label">
+							<label for="email">Email</label>
+							<input type="text" name="email" class="form-control">
+							<span class="form-bar"></span>
+						</div>
+						<div class="form-group form-default form-static-label">
+							<label for="avatar">
+								Avatar</label>
+							<input type="file" name="avatar" class="form-control">
+							<span class="form-bar"></span>
+						</div>
+
+						<div class="form-group form-default form-static-label">
+							<label for="password">Mot de passe</label>
+							<input type="password" name="password" class="form-control">
+							<span class="form-bar"></span>
+						</div>
+						<div class="form-group form-default form-static-label">
+							<label for="password-confirm">confirmer Mot de passe</label>
+							<input type="password" name="password-confirm" class="form-control">
+							<span class="form-bar"></span>
+						</div>
+						<div class="form-group form-default form-static-label">
+							<label for="rank">
+								Rank</label>
+							<select name="rank" class="form-control fill">
+								{% for rank in ranks %}
+									<option value="{{rank.id}}" {% if rank.id == user.rank %} selected {% endif %}>{{rank.name}}</option>
+								{% endfor %}
+							</select>
+							<span class="form-bar"></span>
+						</div>
+						<div class="form-group form-default form-static-label">
+							<label for="rank">
+								Banni ?</label>
+							<select name="banned" class="form-control fill">
+								<option value="0" {% if user.banned == 0 %} selected {% endif %}>Non</option>
+								<option value="1" {% if user.banned == 1 %} selected {% endif %}>Oui</option>
+							</select>
+							<span class="form-bar"></span>
+						</div>
+						<center>
+
+							{% if get.error == 1 %}
+								<p style="color:red" class="text-center">
+									Une erreur est survenu</p>
+							{% endif %}
+
+							{% if get.error == 2 %}
+								<p style="color:red" class="text-center">
+									Cette Email existe déjà
+								</p>
+							{% endif %}
+
+							<button class="btn waves-effect waves-light btn-primary btn-outline-primary">
+								Ajouter</button>
+						</center>
+					</form>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}

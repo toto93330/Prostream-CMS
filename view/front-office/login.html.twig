@@ -2,7 +2,14 @@
 
 {% block title %}La Page Que Tu Demande N'existe Pas/Ou Plus
 {% endblock %}
+{% block header_javascript %}
+	<script type="text/javascript">
+		var onloadCallback = function () {
+grecaptcha.render('g-recaptcha', {'sitekey': '{{ constant('_GOOGLEAPI') }}'});
+};
+	</script>
 
+{% endblock %}
 
 {% block content %}
 	<section id="block-container" style="max-width: 450px">
@@ -13,12 +20,17 @@
 			<label for="password">Votre Password</label>
 			<input type="password" name="password" id="password">
 			<center>
-				<div class="g-recaptcha" data-sitekey="{{ constant('_GOOGLEAPI') }}"></div>
+				<div id="g-recaptcha"></div>
 			</center>
 			<input type="submit" value="Login" class="btn btn-primary">
 		</form>
+
 	</section>
+	{% if get.error == 1 %}
+		<p style="color:red" class="text-center">
+			Une erreur est survenu</p>
+	{% endif %}
 {% endblock %}
 {% block javascript %}
-	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 {% endblock %}

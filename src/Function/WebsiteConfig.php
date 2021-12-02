@@ -24,6 +24,10 @@ class websiteConfig
         return Connexion::dbConnect();
     }
 
+    /**
+     * DEFINE GENERAL SETTINGS
+     * @return void 
+     */
     static function generalConfig()
     {
         $stmt = self::dbConnect()->prepare("SELECT * FROM general");

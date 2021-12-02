@@ -2,16 +2,19 @@
 
 namespace Src\Controller;
 
-use Src\Model\Calendar;
-use Src\Model\CalendarDay;
-use Src\Model\Commands;
-use Src\Model\CommandsCategory;
-use Src\Model\Donation;
-use Src\Model\Extension;
-use Src\Model\General;
 use Src\Model\Page;
 use Src\Model\Social;
 use Src\Model\Twitch;
+use Src\Model\General;
+use Src\Model\Calendar;
+use Src\Model\Commands;
+use Src\Model\Donation;
+use Src\Model\Extension;
+use Src\Function\Sessions;
+use Src\Model\CalendarDay;
+use Src\Model\CommandsCategory;
+use Src\Model\User;
+use Src\Model\UserRank;
 
 /**
  * This Class it's for admin dashbord controller.
@@ -341,16 +344,51 @@ class DashBordController
     #######################
     function users()
     {
-        $this->render('back-office/users', []);
+
+        $users = (new User)->findAll();
+
+        $this->render('back-office/users', [
+            'users' => $users
+        ]);
+    }
+
+    function usersadd()
+    {
+
+        $ranks = (new UserRank)->findAll();
+
+        if ($_POST) {
+            $request = new User();
+            $request->addUser();
+        }
+
+        $this->render('back-office/usersadd', [
+            'ranks' => $ranks,
+        ]);
     }
 
     function usersedit($id)
     {
-        $this->render('back-office/usersedit', []);
+        $user = (new User)->findByID($id);
+        $ranks = (new UserRank)->findAll();
+
+
+        // VERIF IF RESQUEST POST EXIST
+        if ($_POST) {
+            $request = new User();
+            $request->editUser($id);
+        }
+
+        $this->render('back-office/usersedit', [
+            'user' => $user[0],
+            'ranks' => $ranks,
+        ]);
     }
 
     function usersremove($id)
     {
+        $remove = new User();
+        $remove->remove($id);
     }
 
     #######################

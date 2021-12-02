@@ -8,8 +8,10 @@ use Src\Model\Calendar;
 use Src\Model\Commands;
 use Src\Model\Donation;
 use Src\Function\Twitch;
-use Src\Model\CalendarDay;
 use Src\Model\Extension;
+use Src\Function\Session;
+use Src\Function\Sessions;
+use Src\Model\CalendarDay;
 use Src\Model\CommandsCategory;
 
 /**
@@ -33,6 +35,13 @@ class WebSiteController
     #######################
     function login()
     {
+        $session = (new Sessions());
+        $session->verifSessionExist();
+
+        if ($_POST) {
+            $session->connexion();
+        }
+
         $this->render('front-office/login', []);
     }
 
@@ -42,6 +51,8 @@ class WebSiteController
     #######################
     function deconnexion()
     {
+        $session = new Sessions();
+        $session->sessionDestroy();
     }
 
     #######################
