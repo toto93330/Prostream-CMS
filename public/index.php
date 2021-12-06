@@ -12,10 +12,6 @@ session_start();
 require_once '../vendor/autoload.php';
 
 ###
-# VERIF WEBSITE IS INSTALLED
-###
-
-###
 # GENERAL CONFIG
 ###
 
