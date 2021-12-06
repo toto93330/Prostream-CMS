@@ -11,7 +11,7 @@ COMMING SOON
 
 **Contexte :**
 
-Vous avez besoin d'un site pour promouvoir votre chaine twitch sur internet ?? ne chercher plus voici Prostream V1 le premier CMS spécialement dévelopé pour les streamers.
+Vous avez besoin d'un site pour promouvoir votre chaine twitch sur internet ?? ne chercher plus voici Prostream V1 le premier CMS spécialement dévelopé pour les streamers disponible en beta ^^ la nouvelle version arrive bientôt.
 
 # SCREENSHOT  / CAPTURE D'ÉCRAN
 
