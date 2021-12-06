@@ -25,7 +25,7 @@ class Donation extends Model
 
         if (!empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['paypal']) && !empty($_POST['streamlab']) && !empty($_POST['actived'])) {
             $title = htmlspecialchars($_POST['title']);
-            $content = htmlspecialchars($_POST['content']);
+            $content = $_POST['content'];
             $paypal = htmlspecialchars($_POST['paypal']);
             $streamlab = htmlspecialchars($_POST['streamlab']);
             $actived = htmlspecialchars($_POST['actived']);

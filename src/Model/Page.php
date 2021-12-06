@@ -25,7 +25,7 @@ class Page extends Model
 
         if (!empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['actived'])) {
             $title = htmlspecialchars($_POST['title']);
-            $content = htmlspecialchars($_POST['content']);
+            $content = $_POST['content'];
             $actived = htmlspecialchars($_POST['actived']);
 
             $stmt = $this->dbConnect()->prepare("UPDATE $this->table SET title=? , content=? , actived=? WHERE id=1");
