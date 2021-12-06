@@ -25,7 +25,7 @@ class Social extends Model
 
         if (!empty($_POST['name']) && !empty($_POST['icon']) && !empty($_POST['link'])) {
             $name = htmlspecialchars($_POST['name']);
-            $icon = htmlspecialchars($_POST['icon']);
+            $icon = $_POST['icon'];
             $link = htmlspecialchars($_POST['link']);
 
             $stmt = $this->dbConnect()->prepare("INSERT INTO `social` (`id`, `name`, `icon`, `link`) VALUES (NULL, ?, ?, ?)");
@@ -58,7 +58,7 @@ class Social extends Model
         }
 
         if (!empty($_POST['icon'])) {
-            $value = htmlspecialchars($_POST['icon']);
+            $value = $_POST['icon'];
             $stmt = $this->dbConnect()->prepare("UPDATE $this->table SET `icon` = '$value' WHERE `id` = $id");
             $stmt->execute();
 

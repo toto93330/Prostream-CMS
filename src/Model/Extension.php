@@ -25,7 +25,7 @@ class Extension extends Model
 
         if (!empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['firefox']) && !empty($_POST['chrome']) && !empty($_POST['actived'])) {
             $title = htmlspecialchars($_POST['title']);
-            $content = htmlspecialchars($_POST['content']);
+            $content = $_POST['content'];
             $firefox = htmlspecialchars($_POST['firefox']);
             $chrome = htmlspecialchars($_POST['chrome']);
             $actived = htmlspecialchars($_POST['actived']);
