@@ -75,7 +75,7 @@ language = 'fr';
 
 A vous de configurer ce fichier avec vos informations si vous avez besoin d'aide contacter moi via mon site personnel a cette adresse :
 
-![Ouvrir un ticket d'aide](https://anthonyalves.fr)
+[Ouvrir un ticket d'aide](https://anthonyalves.fr)
 
 Etape 3 :
 
