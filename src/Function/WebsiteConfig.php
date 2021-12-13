@@ -3,7 +3,6 @@
 namespace Src\Function;
 
 use Src\Function\Connexion;
-use Src\Model\General;
 
 /**
  * This Class it's for General Config.
@@ -12,7 +11,7 @@ use Src\Model\General;
  */
 
 
-class websiteConfig
+class WebsiteConfig
 {
 
     /**

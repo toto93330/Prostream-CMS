@@ -1,6 +1,7 @@
 <?php
 
-use Src\Function\websiteConfig;
+use Src\Function\WebsiteConfig;
+
 ####
 # SESSION
 ####
@@ -14,8 +15,7 @@ require_once '../vendor/autoload.php';
 ###
 # GENERAL CONFIG
 ###
-
-websiteConfig::generalConfig();
+WebsiteConfig::generalConfig();
 
 ####
 # INIT ROUTE

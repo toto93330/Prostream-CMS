@@ -3,13 +3,11 @@
 namespace Src\Controller;
 
 use Src\Model\Page;
-use Src\Model\General;
 use Src\Model\Calendar;
 use Src\Model\Commands;
 use Src\Model\Donation;
 use Src\Function\Twitch;
 use Src\Model\Extension;
-use Src\Function\Session;
 use Src\Function\Sessions;
 use Src\Model\CalendarDay;
 use Src\Model\CommandsCategory;

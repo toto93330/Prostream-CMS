@@ -10,7 +10,6 @@ use Src\Model\Calendar;
 use Src\Model\Commands;
 use Src\Model\Donation;
 use Src\Model\Extension;
-use Src\Function\Sessions;
 use Src\Model\CalendarDay;
 use Src\Model\CommandsCategory;
 use Src\Model\User;

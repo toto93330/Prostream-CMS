@@ -1,8 +1,6 @@
 <?php
 
 use Src\Function\Sessions;
-use Src\Controller\WebSiteController;
-use Src\Controller\DashBordController;
 
 /**
  * Pro Stream.

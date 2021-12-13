@@ -9,7 +9,7 @@
 		<div id="block-donnation">
 			<h1>{{donation.title}}</h1>
 			<div class="line"></div>
-			{{donation.content}}
+			{{donation.content|raw}}
 
 			<div id="block-donation-button">
 				<a href="{{donation.linkdonationpaypal}}" class="btn btn-primary" target="_blank">

@@ -97,7 +97,7 @@ class User extends Model
 
             $psw = htmlspecialchars($_POST['password']);
             $password = password_hash($psw, PASSWORD_BCRYPT);
-            $stmt = $this->dbConnect()->prepare("UPDATE $this->table SET `password` = $password WHERE id = $id");
+            $stmt = $this->dbConnect()->prepare("UPDATE $this->table SET `password` = '$password' WHERE id = $id");
             $stmt->execute();
 
             //IF SUMITED
