@@ -5,13 +5,13 @@
 ![enter image description here](https://icons.iconarchive.com/icons/osiris/world-flags/16/00-cctld-ac-icon.png)  **ENGLISH** ![enter image description here](https://icons.iconarchive.com/icons/osiris/world-flags/16/00-cctld-ac-icon.png)
 
 
-
+COMMING SOON
 
 ![enter image description here](https://icons.iconarchive.com/icons/osiris/world-flags/16/00-cctld-fx-icon.png) **FRANCAIS** ![enter image description here](https://icons.iconarchive.com/icons/osiris/world-flags/16/00-cctld-fx-icon.png)
 
 **Contexte :**
 
-Vous avez besoin d'un site pour promouvoir votre chaine twitch sur internet ?? ne chercher plus voici Prostream V1 le premier CMS spécialement dévelopé pour les streamers.
+Vous avez besoin d'un site pour promouvoir votre chaine twitch sur internet ?? ne chercher plus voici Prostream V1 le premier CMS spécialement dévelopé pour les streamers disponible en beta ^^ la nouvelle version arrive bientôt.
 
 # SCREENSHOT  / CAPTURE D'ÉCRAN
 
@@ -21,7 +21,7 @@ Vous avez besoin d'un site pour promouvoir votre chaine twitch sur internet ?? n
 ![enter image description here](https://icons.iconarchive.com/icons/osiris/world-flags/16/00-cctld-ac-icon.png)  **ENGLISH** ![enter image description here](https://icons.iconarchive.com/icons/osiris/world-flags/16/00-cctld-ac-icon.png)
 
 
-
+COMMING SOON
 
 
 ![enter image description here](https://icons.iconarchive.com/icons/osiris/world-flags/16/00-cctld-fx-icon.png) **FRANCAIS** ![enter image description here](https://icons.iconarchive.com/icons/osiris/world-flags/16/00-cctld-fx-icon.png)
@@ -41,9 +41,64 @@ Si vous avez du mal à choisir un hebergeur [cette hebergeur](https://www.lws.fr
 ![enter image description here](https://icons.iconarchive.com/icons/osiris/world-flags/16/00-cctld-ac-icon.png)  **ENGLISH** ![enter image description here](https://icons.iconarchive.com/icons/osiris/world-flags/16/00-cctld-ac-icon.png)
 
 
-
+COMMING SOON
 
 
 ![enter image description here](https://icons.iconarchive.com/icons/osiris/world-flags/16/00-cctld-fx-icon.png) **FRANCAIS** ![enter image description here](https://icons.iconarchive.com/icons/osiris/world-flags/16/00-cctld-fx-icon.png)
+
+Etape 1 :
+
+Extraire l'ensemble de l'archive sur votre FTP
+
+Etape 2 :
+
+Maintenant modifier le fichier de configuration avec vos information de connexion sql le fichier se situe dans le dossier config
+
+|                |Fichier de connexion a la base de données                         |
+|----------------|-------------------------------|
+|nom du fichier|`config.inc.ini`            |
+
+Dedans vous devriez retrouver cette configuration :
+
+
+```
+[db]
+host = 'localhost';
+dbname = 'letsplaymatsu';
+user = 'root';
+password = 'root';
+port = '3306';
+
+[language]
+language = 'fr';
+```
+
+A vous de configurer ce fichier avec vos informations si vous avez besoin d'aide contacter moi via mon site personnel a cette adresse :
+
+[Ouvrir un ticket d'aide](https://anthonyalves.fr)
+
+Etape 3 :
+
+Importer le fichier prostream.sql dans votre database, ça permettra de créer les tables necessaire a votre site.
+
+Etape 4 :
+
+Par la suite il faudra vous connectez taper /login et rentrer les identifient suivant :
+
+|                |information de connexion                       |
+|----------------|-------------------------------|
+|Email|`root@root.fr`            |
+|Mot de passe|`root`            |
+
+IMPORTANT :
+Maintenant vous devriez avoir dans le menu de gauche un nouvel onglet "Administration" cliquer dessus et rendez-vous dans la partie "liste des utilisateurs" pour modifier les informations de connection à votre utilisateur et de votre espace d'administration.
+
+il ne vous reste plus qu'à configurer le site en profondeur à vous de jouer ;)
+
+
+
+
+
+
 
 
